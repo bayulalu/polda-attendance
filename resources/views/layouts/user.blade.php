@@ -160,7 +160,7 @@
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link active" href="{{ route('admin.tambah.akun') }}"
-                                            wire:navigate>
+                                            >
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -172,7 +172,7 @@
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{ route('admin.akun') }}" wire:navigate>
+                                        <a class="menu-link" href="{{ route('admin.akun') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
