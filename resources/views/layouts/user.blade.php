@@ -208,7 +208,7 @@
                 </div>
                 <!--end::Aside menu-->
                 <!--begin::Footer-->
-                <div class="aside-footer flex-column-auto" id="kt_aside_footer">
+                {{-- <div class="aside-footer flex-column-auto" id="kt_aside_footer">
                     <!--begin::Menu-->
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btm-sm btn-icon btn-custom btn-active-color-primary"
@@ -287,7 +287,7 @@
                         <!--end::Menu 2-->
                     </div>
                     <!--end::Menu-->
-                </div>
+                </div> --}}
                 <!--end::Footer-->
             </div>
             <!--end::Aside-->
