@@ -1,0 +1,10 @@
+{
+    "private": true,
+    "type": "module",
+    "devDependencies": {
+        "axios": "^1.6.4"
+    },
+    "dependencies": {
+        "sweetalert2": "^11.6.13"
+    }
+}
