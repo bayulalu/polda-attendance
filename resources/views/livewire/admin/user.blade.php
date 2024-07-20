@@ -49,16 +49,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Santi</td>
-                                <td>123983</td>
-                                <td>satu@gmail.com</td>
-                                <td>BRIPDA</td>
-                            </tr>
-                            
+                            @forelse ($users as $user)
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->nip}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->position}}</td>
+                                </tr>
+                            @empty
+                                <div class="alert alert-danger">
+                                    Data User belum Tersedia.
+                                </div>
+                            @endforelse
                         </tbody>
                     </table>
+                    {{ $users->links('vendor.pagination.bootstrap-5') }}
+
                 </div>
                 <!--end::Form-->
             </div>
@@ -75,6 +82,7 @@
                 format: 'YYYY-MM-DD'
             }
         });
+
         function loadScript(src) {
             return new Promise(function(resolve, reject) {
                 var script = document.createElement('script');
@@ -84,6 +92,5 @@
                 document.body.appendChild(script);
             });
         }
-
     </script>
 </div>
