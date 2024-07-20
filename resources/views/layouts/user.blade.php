@@ -51,8 +51,8 @@
         var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }} " ></script>
-    <script src="{{ asset('assets/js/scripts.bundle.js') }} " ></script>
+    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }} "></script>
+    <script src="{{ asset('assets/js/scripts.bundle.js') }} "></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used for this page only)-->
     {{-- <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script> --}}
@@ -159,8 +159,7 @@
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link active" href="{{ route('admin.tambah.akun') }}"
-                                            >
+                                        <a class="menu-link active" href="{{ route('admin.tambah.akun') }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -589,7 +588,7 @@
                         </div>
                         <!--end::Page title-->
                         <!--begin::Action group-->
-                      
+
                         <!--end::Action group-->
                     </div>
                     <!--end::Container-->
