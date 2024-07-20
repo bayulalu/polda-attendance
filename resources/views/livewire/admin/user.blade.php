@@ -49,9 +49,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($users as $user)
+                            @forelse ($users as  $index => $user)
                                 <tr>
-                                    <td>1</td>
+                                    <td>{{ ($users->currentPage() - 1) * $users->perPage() + $index + 1 }}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->nip}}</td>
                                     <td>{{$user->email}}</td>
