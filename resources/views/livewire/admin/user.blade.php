@@ -54,24 +54,25 @@
                             @forelse ($users as  $index => $user)
                                 <tr>
                                     <td>{{ ($users->currentPage() - 1) * $users->perPage() + $index + 1 }}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->nip}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->position}}</td>
-                                    <td>{{$user->status ? "Aktif" : "Tidak Aktif"}}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->nip }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->position }}</td>
+                                    <td>{{ $user->status ? 'Aktif' : 'Tidak Aktif' }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button type="button" class="btn btn-danger dropdown-toggle btn-sm"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="ki-solid ki-gear"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item" href="#">Edit</a></li>
-                                              <li><a class="dropdown-item" href="#">{{$user->status ? "Non Aktif" : "Aktif"}}</a></li>
-                                              <li><a class="dropdown-item" href="#">Reset Password</a></li>
-                                              {{-- <li><hr class="dropdown-divider"></li>
-                                              <li><a class="dropdown-item" href="#">Separated link</a></li> --}}
+                                                <li><a class="dropdown-item" href="{{ route('admin.update.akun', ['id'=> $user->id]) }}">Edit</a></li>
+                                                <li><a class="dropdown-item"
+                                                        wire:click='statusUser({{ $user->id }})'>{{ $user->status ? 'Non Aktif' : 'Aktif' }}</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#">Reset Password</a></li>
                                             </ul>
-                                          </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @empty
