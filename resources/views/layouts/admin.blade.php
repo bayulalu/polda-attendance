@@ -383,13 +383,6 @@
 										<!--end::Menu wrapper-->
 									</div>
 									<!--end::User menu-->
-									<!--begin::Heaeder menu toggle-->
-									<div class="d-flex align-items-center d-lg-none ms-2 me-n2" title="Show header menu">
-										<div class="btn btn-icon btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
-											<i class="ki-outline ki-burger-menu-2 fs-1"></i>
-										</div>
-									</div>
-									<!--end::Heaeder menu toggle-->
 								</div>
 								<!--end::Toolbar wrapper-->
 							</div>
