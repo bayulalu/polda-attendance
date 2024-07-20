@@ -70,7 +70,7 @@
                                                 <li><a class="dropdown-item"
                                                         wire:click='statusUser({{ $user->id }})'>{{ $user->status ? 'Non Aktif' : 'Aktif' }}</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="#">Reset Password</a></li>
+                                                <li><a class="dropdown-item" wire:click='resetPassword({{ $user->id }})' >Reset Password</a></li>
                                             </ul>
                                         </div>
                                     </td>

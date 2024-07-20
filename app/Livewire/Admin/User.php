@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Models\User as ModelsUser;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Str;
 
 class User extends Component
 {
@@ -14,6 +15,14 @@ class User extends Component
     {
         $user = ModelsUser::find($id);
         $user->status = !$user->status;
+        $user->save();
+    }
+
+    public function resetPassword($id)
+    {
+        $user = ModelsUser::find($id);
+        // $user->password = Str::random(10);
+        $user->password = '123';
         $user->save();
     }
 
