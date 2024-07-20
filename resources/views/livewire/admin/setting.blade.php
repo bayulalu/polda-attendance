@@ -9,7 +9,7 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <i class="ki-outline ki-badge fs-1 me-2"></i>
-                    <h2>Pengatuan Jam Kerja</h2>
+                    <h2>Pengaturan Jam Kerja</h2>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -21,24 +21,37 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="fw-bold fs-6 text-gray-800">
+                                <th>No</th>
                                 <th>Hari</th>
                                 <th>Datang</th>
                                 <th>Pulang</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Senin, Selasa</td>
-                                <td>08:00</td>
-                                <td>17:00</td>
-                            </tr>
-                          
-                            <tr>
-                                <td>Jumat</td>
-                                <td>09:00</td>
-                                <td>17:00</td>
-                            </tr>
-                           
+                            @forelse ($settings as  $index => $setting)
+                                <tr>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{$setting->day}}</td>
+                                    <td>{{$setting->time_arrival}}</td>
+                                    <td>{{$setting->time_gohome}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle btn-sm"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="ki-solid ki-gear"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{{ route('admin.update.akun', ['id'=> $setting->id]) }}">Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <div class="alert alert-danger">
+                                    Data belum Tersedia.
+                                </div>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

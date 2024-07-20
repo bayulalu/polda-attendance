@@ -34,7 +34,7 @@ Route::get('/admin-create-user', AddUser::class)->name('admin.tambah.akun');
 Route::get('/admin-update-user/{id}', UpdateUser::class)->name('admin.update.akun');
 
 
-Route::get('/admin-setting', Setting::class)->name('admin.seeting');
+Route::get('/admin-setting', Setting::class)->name('admin.setting');
 
 Route::get('/admin-attendance', ListAttendance::class)->name('admin.attendance');
 
