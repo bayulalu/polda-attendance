@@ -36,12 +36,12 @@
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/widgets.bundle.js"></script>
+		{{-- <script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-campaign.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="assets/js/custom/utilities/modals/users-search.js"></script> --}}
 		<!--begin::Theme mode setup on page load-->
 		<!--begin::Main-->
 		<!--begin::Root-->
@@ -53,8 +53,8 @@
 					<!--begin::Brand-->
 					<div class="aside-logo py-8" id="kt_aside_logo">
 						<!--begin::Logo-->
-						<a href="index.html" class="d-flex align-items-center">
-							<img alt="Logo" src="assets/media/logos/demo6.svg" class="h-45px logo" />
+						<a href="#" class="d-flex align-items-center">
+							<img alt="Logo" src="assets/media/logos/logo-1.png" class="h-80px logo" />
 						</a>
 						<!--end::Logo-->
 					</div>
@@ -62,11 +62,43 @@
 					<!--begin::Aside menu-->
 					<div class="aside-menu flex-column-fluid" id="kt_aside_menu">
 						<!--begin::Aside Menu-->
-						<div class="hover-scroll-y my-2 my-lg-5 scroll-ms" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="5px">
+						<div class="hover-scroll-y my-2 my-lg-5 scroll-ms" id="kt_aside_menu_wrapper" data-kt-scroll="true"
+							data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
+							data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="5px">
 							<!--begin::Menu-->
-							<div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold" id="#kt_aside_menu" data-kt-menu="true">
+							<div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold"
+								id="#kt_aside_menu" data-kt-menu="true">
 								<!--begin:Menu item-->
-								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+									data-kt-menu-placement="right-start" class="menu-item py-2">
+									<!--begin:Menu link-->
+									<span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-outline ki-home-2 fs-2x"></i>
+										</span>
+										<span class="menu-title">Absensi</span>
+									</span>
+									<!--end:Menu link-->
+	
+								</div>
+								<!--end:Menu item-->
+								<!--begin:Menu item-->
+								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+									data-kt-menu-placement="right-start" class="menu-item py-2">
+									<!--begin:Menu link-->
+									<span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-outline ki-notification-status fs-2x"></i>
+										</span>
+										<span class="menu-title">Daftar Absensi</span>
+									</span>
+									<!--end:Menu link-->
+	
+								</div>
+								<!--end:Menu item-->
+	
+								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+									data-kt-menu-placement="right-start" class="menu-item py-2">
 									<!--begin:Menu link-->
 									<span class="menu-link menu-center">
 										<span class="menu-icon me-0">
@@ -75,105 +107,80 @@
 										<span class="menu-title">Dashbord</span>
 									</span>
 									<!--end:Menu link-->
-									
+	
 								</div>
-								<!--end:Menu item-->
-								<!--begin:Menu item-->
-								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+	
+								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+									data-kt-menu-placement="right-start" class="menu-item py-2">
 									<!--begin:Menu link-->
-									<span class="menu-link menu-center">
-										<span class="menu-icon me-0">
+									<span class="menu-link menu-center active">
+										<span class="menu-icon me-0 ">
 											<i class="ki-outline ki-notification-status fs-2x"></i>
 										</span>
 										<span class="menu-title">User</span>
 									</span>
 									<!--end:Menu link-->
-									
+									<!--begin:Menu sub-->
+									<div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu content-->
+											<div class="menu-content">
+												<span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
+											</div>
+											<!--end:Menu content-->
+										</div>
+										<!--end:Menu item-->
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
+											<a class="menu-link active" href="{{ route('admin.tambah.akun') }}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Tambah Akun</span>
+											</a>
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+										<!--begin:Menu item-->
+										<div class="menu-item">
+											<!--begin:Menu link-->
+											<a class="menu-link" href="{{ route('admin.akun') }}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">List Akun</span>
+											</a>
+											<!--end:Menu link-->
+										</div>
+										<!--end:Menu item-->
+	
+									</div>
+									<!--end:Menu sub-->
+	
 								</div>
 								<!--end:Menu item-->
+	
+								<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+									data-kt-menu-placement="right-start" class="menu-item py-2">
+									<!--begin:Menu link-->
+									<span class="menu-link menu-center">
+										<span class="menu-icon me-0 ">
+											<i class="ki-outline ki-notification-status fs-2x"></i>
+										</span>
+										<span class="menu-title">Pengaturan</span>
+									</span>
+									<!--end:Menu link-->
+	
+								</div>
 							</div>
 							<!--end::Menu-->
 						</div>
 						<!--end::Aside Menu-->
 					</div>
 					<!--end::Aside menu-->
-					<!--begin::Footer-->
-					<div class="aside-footer flex-column-auto" id="kt_aside_footer">
-						<!--begin::Menu-->
-						<div class="d-flex justify-content-center">
-							<button type="button" class="btn btm-sm btn-icon btn-custom btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-overflow="true" data-kt-menu-placement="top-start" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-dismiss="click" title="Quick actions">
-								<i class="ki-outline ki-notification-status fs-1"></i>
-							</button>
-							<!--begin::Menu 2-->
-							<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
-								<!--begin::Menu item-->
-								<div class="menu-item px-3">
-									<div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">Pengaturan</div>
-								</div>
-								<!--end::Menu item-->
-								<!--begin::Menu separator-->
-								<div class="separator mb-3 opacity-75"></div>
-								<!--end::Menu separator-->
-								<!--begin::Menu item-->
-								<div class="menu-item px-3">
-									<a href="#" class="menu-link px-3">New Ticket</a>
-								</div>
-								<!--end::Menu item-->
-								<!--begin::Menu item-->
-								<div class="menu-item px-3">
-									<a href="#" class="menu-link px-3">New Customer</a>
-								</div>
-								<!--end::Menu item-->
-								<!--begin::Menu item-->
-								<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-									<!--begin::Menu item-->
-									<a href="#" class="menu-link px-3">
-										<span class="menu-title">New Group</span>
-										<span class="menu-arrow"></span>
-									</a>
-									<!--end::Menu item-->
-									<!--begin::Menu sub-->
-									<div class="menu-sub menu-sub-dropdown w-175px py-4">
-										<!--begin::Menu item-->
-										<div class="menu-item px-3">
-											<a href="#" class="menu-link px-3">Admin Group</a>
-										</div>
-										<!--end::Menu item-->
-										<!--begin::Menu item-->
-										<div class="menu-item px-3">
-											<a href="#" class="menu-link px-3">Staff Group</a>
-										</div>
-										<!--end::Menu item-->
-										<!--begin::Menu item-->
-										<div class="menu-item px-3">
-											<a href="#" class="menu-link px-3">Member Group</a>
-										</div>
-										<!--end::Menu item-->
-									</div>
-									<!--end::Menu sub-->
-								</div>
-								<!--end::Menu item-->
-								<!--begin::Menu item-->
-								<div class="menu-item px-3">
-									<a href="#" class="menu-link px-3">New Contact</a>
-								</div>
-								<!--end::Menu item-->
-								<!--begin::Menu separator-->
-								<div class="separator mt-3 opacity-75"></div>
-								<!--end::Menu separator-->
-								<!--begin::Menu item-->
-								<div class="menu-item px-3">
-									<div class="menu-content px-3 py-3">
-										<a class="btn btn-primary btn-sm px-4" href="#">Logout</a>
-									</div>
-								</div>
-								<!--end::Menu item-->
-							</div>
-							<!--end::Menu 2-->
-						</div>
-						<!--end::Menu-->
-					</div>
-					<!--end::Footer-->
+				
 				</div>
 				<!--end::Aside-->
 				<!--begin::Wrapper-->
@@ -191,8 +198,8 @@
 							<!--end::Aside mobile toggle-->
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-								<a href="index.html" class="d-lg-none">
-									<img alt="Logo" src="assets/media/logos/demo6.svg" class="h-25px" />
+								<a href="#" class="d-lg-none">
+									<img alt="Logo" src="assets/media/logos/logo-1.png" class="h-40px" />
 								</a>
 							</div>
 							<!--end::Mobile logo-->
@@ -391,97 +398,7 @@
 						<!--end::Container-->
 					</div>
 					<!--end::Header-->
-					<!--begin::Toolbar-->
-					<div class="toolbar py-2" id="kt_toolbar">
-						<!--begin::Container-->
-						<div id="kt_toolbar_container" class="container-fluid d-flex align-items-center">
-							<!--begin::Page title-->
-							<div class="flex-grow-1 flex-shrink-0 me-5">
-								<!--begin::Page title-->
-								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-									<!--begin::Title-->
-									<h1 class="d-flex align-items-center text-gray-900 fw-bold my-1 fs-3">Absen</h1>
-									<!--end::Title-->
-									<!--begin::Separator-->
-									<span class="h-20px border-gray-200 border-start mx-3"></span>
-									<!--end::Separator-->
-									<!--begin::Breadcrumb-->
-									<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-1">
-										<!--begin::Item-->
-										<li class="breadcrumb-item text-muted">
-											<a href="index.html" class="text-muted text-hover-primary">Home</a>
-										</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item">
-											<span class="bullet bg-gray-200 w-5px h-2px"></span>
-										</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item text-muted">Apps</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item">
-											<span class="bullet bg-gray-200 w-5px h-2px"></span>
-										</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item text-muted">Chat</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item">
-											<span class="bullet bg-gray-200 w-5px h-2px"></span>
-										</li>
-										<!--end::Item-->
-										<!--begin::Item-->
-										<li class="breadcrumb-item text-gray-900">Group Chat</li>
-										<!--end::Item-->
-									</ul>
-									<!--end::Breadcrumb-->
-								</div>
-								<!--end::Page title-->
-							</div>
-							<!--end::Page title-->
-							<!--begin::Action group-->
-							<div class="d-flex align-items-center flex-wrap">
-								<!--begin::Wrapper-->
-								<div class="flex-shrink-0 me-2">
-									<ul class="nav">
-										<li class="nav-item">
-											<a class="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light active fw-semibold fs-7 px-4 me-1" data-bs-toggle="tab" href="#">Day</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4 me-1" data-bs-toggle="tab" href="">Week</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4" data-bs-toggle="tab" href="#">Year</a>
-										</li>
-									</ul>
-								</div>
-								<!--end::Wrapper-->
-								<!--begin::Wrapper-->
-								<div class="d-flex align-items-center">
-									<!--begin::Daterangepicker-->
-									<a href="#" class="btn btn-sm btn-bg-light btn-color-gray-500 btn-active-color-primary me-2" id="kt_dashboard_daterangepicker" data-bs-toggle="tooltip" data-bs-dismiss="click" data-bs-trigger="hover" title="Select dashboard daterange">
-										<span class="fw-semibold me-1" id="kt_dashboard_daterangepicker_title">Range:</span>
-										<span class="fw-bold" id="kt_dashboard_daterangepicker_date">March 29</span>
-									</a>
-									<!--end::Daterangepicker-->
-									<!--begin::Actions-->
-									<div class="d-flex align-items-center me-n2 me-lg-0">
-										<button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light btn-active-color-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">
-											<i class="ki-outline ki-plus-square fs-2"></i>
-										</button>
-									</div>
-									<!--end::Actions-->
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::Action group-->
-						</div>
-						<!--end::Container-->
-					</div>
-					<!--end::Toolbar-->
+				
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Container-->
