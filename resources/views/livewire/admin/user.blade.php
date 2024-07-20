@@ -38,7 +38,7 @@
                 <br><br>
                 <!--begin::Form-->
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="kt_datatable_horizontal_scroll" class="table table-striped table-row-bordered gy-5 gs-7">
                         <thead>
                             <tr class="fw-bold fs-6 text-gray-800">
                                 <th>No</th>
@@ -46,6 +46,8 @@
                                 <th>NIP</th>
                                 <th>Email</th>
                                 <th>Pangkat</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +58,21 @@
                                     <td>{{$user->nip}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->position}}</td>
+                                    <td>{{$user->status ? "Aktif" : "Tidak Aktif"}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="ki-solid ki-gear"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a class="dropdown-item" href="#">Edit</a></li>
+                                              <li><a class="dropdown-item" href="#">{{$user->status ? "Non Aktif" : "Aktif"}}</a></li>
+                                              <li><a class="dropdown-item" href="#">Reset Password</a></li>
+                                              {{-- <li><hr class="dropdown-divider"></li>
+                                              <li><a class="dropdown-item" href="#">Separated link</a></li> --}}
+                                            </ul>
+                                          </div>
+                                    </td>
                                 </tr>
                             @empty
                                 <div class="alert alert-danger">
