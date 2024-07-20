@@ -10,6 +10,13 @@ class User extends Component
 {
     use WithPagination;
 
+    public function statusUser($id)
+    {
+        $user = ModelsUser::find($id);
+        $user->status = !$user->status;
+        $user->save();
+    }
+
     public function render()
     {
         $users = ModelsUser::latest()->paginate(20);
