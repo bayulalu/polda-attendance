@@ -32,7 +32,7 @@
                             @forelse ($settings as  $index => $setting)
                                 <tr>
                                     <td>{{$index + 1}}</td>
-                                    <td>{{$setting->day}}</td>
+                                    <td>{{ucwords($setting->day)}}</td>
                                     <td>{{$setting->time_arrival}}</td>
                                     <td>{{$setting->time_gohome}}</td>
                                     <td>
