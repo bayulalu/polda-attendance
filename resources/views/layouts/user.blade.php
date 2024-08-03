@@ -187,7 +187,7 @@
                             </div>
                             <!--end:Menu item-->
 
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                            {{-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                 data-kt-menu-placement="right-start" class="menu-item py-2">
                                 <!--begin:Menu link-->
                                 <span class="menu-link menu-center">
@@ -199,7 +199,8 @@
                                 <!--end:Menu link-->
 
 
-                            </div>
+                            </div> --}}
+                            
                         </div>
                         <!--end::Menu-->
                     </div>

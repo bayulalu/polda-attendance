@@ -9,6 +9,7 @@ use App\Livewire\Absensi\ListAbsen as AbsenList;
 use App\Livewire\Admin\User as DaftarUser;
 use App\Livewire\Admin\AddUser;
 use App\Livewire\Admin\Setting;
+use App\Livewire\Admin\AddSetting;
 use App\Livewire\Admin\UpdateUser;
 use App\Livewire\Attendance\Index as ListAttendance;
 use App\Livewire\Post\Create;
@@ -33,8 +34,9 @@ Route::get('/admin-create-user', AddUser::class)->name('admin.tambah.akun');
 
 Route::get('/admin-update-user/{id}', UpdateUser::class)->name('admin.update.akun');
 
-
+Route::get('/add-setting', AddSetting::class)->name('add.setting');
 Route::get('/admin-setting', Setting::class)->name('admin.setting');
+
 
 Route::get('/admin-attendance', ListAttendance::class)->name('admin.attendance');
 

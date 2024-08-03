@@ -172,17 +172,66 @@
                             </div>
                             <!--end:Menu item-->
 
-                            <div data-kt-menu-placement="right-start" class="menu-item py-2" id="menu-pengaturan">
+                            <!--begin:Menu item-->
+                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                data-kt-menu-placement="right-start" class="menu-item py-2">
                                 <!--begin:Menu link-->
                                 <span class="menu-link menu-center">
-                                    <span class="menu-icon me-0 ">
-                                        <i class="ki-outline ki-notification-status fs-2x"></i>
+                                    <span class="menu-icon me-0">
+                                        <i class="ki-outline ki-briefcase fs-2x"></i>
                                     </span>
                                     <span class="menu-title">Pengaturan</span>
                                 </span>
                                 <!--end:Menu link-->
+                                <!--begin:Menu sub-->
+                                <div
+                                    class="menu-sub menu-sub-dropdown px-2 py-4 w-200px w-lg-225px mh-75 overflow-auto">
+                                    <!--begin:Menu item-->
+                                    <div class="menu-item">
+                                        <!--begin:Menu content-->
+                                        <div class="menu-content">
+                                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Stup Jam Kerja</span>
+                                        </div>
+                                        <!--end:Menu content-->
+                                    </div>
+                                    <!--end:Menu item-->
+                                    <!--begin:Menu item-->
+                                    <div class="menu-item">
+                                        <!--begin:Menu link-->
+                                        <a class="menu-link"
+                                            href="{{ route('add.setting') }}"
+                                            target="_blank" title="Check out over 200 in-house components"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                            data-bs-placement="right">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Tambah</span>
+                                        </a>
+                                        <!--end:Menu link-->
+                                    </div>
+                                    <!--end:Menu item-->
+                                    <!--begin:Menu item-->
+                                    <div class="menu-item">
+                                        <!--begin:Menu link-->
+                                        <a class="menu-link" href="{{ route('admin.setting') }}"
+                                            title="List pengaturan"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                            data-bs-placement="right">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">List </span>
+                                        </a>
+                                        <!--end:Menu link-->
+                                    </div>
+                                    <!--end:Menu item-->
 
+                                    <!--end:Menu item-->
+                                </div>
+                                <!--end:Menu sub-->
                             </div>
+                            <!--end:Menu item-->
                         </div>
                         <!--end::Menu-->
                     </div>
@@ -458,7 +507,7 @@
                         class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
                         <div class="text-gray-900 order-2 order-md-1">
-                            <span class="text-muted fw-semibold me-1">2024&copy;</span>
+                            <span class="text-muted fw-semibold me-1">{{ date('Y') }} &copy;</span>
                             <a href="#" class="text-gray-800 text-hover-primary">POLDA NTB</a>
                         </div>
                         <!--end::Copyright-->
