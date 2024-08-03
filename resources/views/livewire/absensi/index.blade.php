@@ -1,3 +1,10 @@
+<style>
+    #surat-tugas{
+        display: none;
+    }
+
+</style>
+
 <div class=" d-flex flex-column-fluid flex-center">
 
     <div class="col-xl-8 col-md-10 col-sm-12">
@@ -34,9 +41,9 @@
                         </label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <select class="form-select" aria-label="Select example">
-                            <option value="1">Ditempat</option>
-                            <option value="2">Tugas Luar Kota</option>
+                        <select class="form-select" aria-label="Select example" id="type">
+                            <option value="Ditempat">Ditempat</option>
+                            <option value="Tugas Luar Kantor">Tugas Luar Kantor</option>
                         </select>
                         <!--end::Input-->
                         <div
@@ -47,7 +54,7 @@
                     <!--end::Input group-->
 
                     <!--begin::Input group-->
-                    <div class="fv-row mb-7">
+                    <div class="fv-row mb-7" id="surat-tugas">
                         <!--begin::Label-->
                         <label class="fs-6 fw-semibold form-label mt-3">
                             <span>Upload Surat Tugas</span>
@@ -192,11 +199,11 @@
                     <!--begin::Action buttons-->
                     <div class="d-flex justify-content-end">
                         <!--begin::Button-->
-                        <button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">Cancel</button>
+                        <button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">Batal</button>
                         <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" data-kt-contacts-type="submit" class="btn btn-primary">
-                            <span class="indicator-label">Save</span>
+                            <span class="indicator-label">Simpan</span>
                             <span class="indicator-progress">Please wait...
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                         </button>
@@ -247,8 +254,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="snap">Save changes</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                    <button type="button" class="btn btn-primary" id="snap">Ambil Gambar</button>
                 </div>
             </div>
         </div>
@@ -297,6 +304,16 @@
                     stream.getTracks().forEach(track => track.stop());
                 }
             });
+        });
+
+        $('#type').change(function (e) { 
+            var type = $('#type').val();
+            if (type == 'Tugas Luar Kantor') {
+                $('#surat-tugas').show();
+            }else{
+                $('#surat-tugas').hide();
+            }
+            
         });
 
     </script>
