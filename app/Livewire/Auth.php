@@ -37,7 +37,7 @@ class Auth extends Component
         }
 
         if (Login::attempt($credentials, $this->remember_me)) {
-            $redirectRoute = $user->is_admin ? 'home.index' : 'home.index';
+            $redirectRoute = $user->is_admin ? 'admin.attendance' : 'absen.user.index';
             session()->flash('success', 'Login berhasil!');
             return redirect()->route($redirectRoute);
         }else{

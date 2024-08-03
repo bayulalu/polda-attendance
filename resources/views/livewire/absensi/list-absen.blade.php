@@ -41,50 +41,38 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="fw-bold fs-6 text-gray-800">
+                                <th>No</th>
                                 <th>Hari/Tgl</th>
+                                <th>Type</th>
                                 <th>Datang</th>
                                 <th>Pulang</th>
-                                <th>Ket</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Senin, 1 Juni 2024</td>
-                                <td>08:00</td>
-                                <td>17:00</td>
-                                <td>Hadir</td>
-                            </tr>
-                            <tr>
-                                <td>Selasa, 2 Juni 2024</td>
-                                <td>08:00</td>
-                                <td>17:00</td>
-                                <td>Hadir</td>
-                            </tr>
-                            <tr>
-                                <td>Rabu, 3 Juni 2024</td>
-                                <td>08:00</td>
-                                <td>17:00</td>
-                                <td>Hadir</td>
-                            </tr>
-                            <tr>
-                                <td>Kamis, 4 Juni 2024</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>Tidak Hadir</td>
-                            </tr>
 
-                            <tr>
-                                <td>Jumat, 5 Juni 2024</td>
-                                <td>09:00</td>
-                                <td>17:00</td>
-                                <td>Terlambat</td>
-                            </tr>
-                            <tr>
-                                <td>Sabtu, 6 Juni 2024</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>Libur</td>
-                            </tr>
+                            @forelse ($attendances as  $index => $attendance)
+                                <tr>
+                                    
+                                    <td>{{ ($attendances->currentPage() - 1) * $attendances->perPage() + $index + 1 }}
+                                    </td>
+                                    <td>
+                                        @php
+                                            $date = \Carbon\Carbon::parse($attendance->date);
+                                            $date->locale('id');
+                                        @endphp
+                                        {{ $date->translatedFormat('l, j F Y') }}
+                                    </td>
+                                    <td>{{ $attendance->type }}</td>
+                                    <td>{{ $attendance->check_in ?? '-' }}</td>
+                                    <td>{{ $attendance->check_out ?? '-' }}</td>
+                                    <td>{{ $attendance->status == 1 ? 'Diterima' : 'Ditolak' }}</td>
+                                </tr>
+                            @empty
+                                <div class="alert alert-danger">
+                                    Data belum Tersedia.
+                                </div>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
