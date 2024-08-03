@@ -79,42 +79,44 @@
                         <div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold"
                             id="#kt_aside_menu" data-kt-menu="true">
                             <!--begin:Menu item-->
+                            @if (Auth::user()->is_admin == 0)
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="right-start" class="menu-item py-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link menu-center" id="menu-user-list-absensi">
+                                        <span class="menu-icon me-0">
+                                            <i class="ki-outline ki-home-2 fs-2x"></i>
+                                        </span>
+                                        <span class="menu-title">Absensi</span>
+                                    </span>
+                                    <!--end:Menu link-->
+
+                                </div>
+                                <!--end:Menu item-->
+                                <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="right-start" class="menu-item py-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link menu-center" id="menu-user-absensi">
+                                        <span class="menu-icon me-0">
+                                            <i class="ki-outline ki-notification-status fs-2x"></i>
+                                        </span>
+                                        <span class="menu-title">Daftar Absensi</span>
+                                    </span>
+                                    <!--end:Menu link-->
+
+                                </div>
+                            <!--end:Menu item-->
+                            @elseif (Auth::user()->is_admin == 1)
+
                             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                 data-kt-menu-placement="right-start" class="menu-item py-2">
                                 <!--begin:Menu link-->
-                                <span class="menu-link menu-center">
+                                <span class="menu-link menu-center" id="menu-admin-absensi">
                                     <span class="menu-icon me-0">
                                         <i class="ki-outline ki-home-2 fs-2x"></i>
                                     </span>
                                     <span class="menu-title">Absensi</span>
-                                </span>
-                                <!--end:Menu link-->
-
-                            </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center">
-                                    <span class="menu-icon me-0">
-                                        <i class="ki-outline ki-notification-status fs-2x"></i>
-                                    </span>
-                                    <span class="menu-title">Daftar Absensi</span>
-                                </span>
-                                <!--end:Menu link-->
-
-                            </div>
-                            <!--end:Menu item-->
-
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center">
-                                    <span class="menu-icon me-0">
-                                        <i class="ki-outline ki-home-2 fs-2x"></i>
-                                    </span>
-                                    <span class="menu-title">Dashbord</span>
                                 </span>
                                 <!--end:Menu link-->
 
@@ -198,9 +200,7 @@
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link"
-                                            href="{{ route('add.setting') }}"
-                                            title="Stup jam kerja"
+                                        <a class="menu-link" href="{{ route('add.setting') }}" title="Stup jam kerja"
                                             data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
                                             data-bs-placement="right">
                                             <span class="menu-bullet">
@@ -215,9 +215,8 @@
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link" href="{{ route('admin.setting') }}"
-                                            title="List pengaturan"
-                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
-                                            data-bs-placement="right">
+                                            title="List pengaturan" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                            data-bs-dismiss="click" data-bs-placement="right">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -232,6 +231,8 @@
                                 <!--end:Menu sub-->
                             </div>
                             <!--end:Menu item-->
+                            @endif
+
                         </div>
                         <!--end::Menu-->
                     </div>
@@ -558,8 +559,20 @@
     @livewireScripts
     <script>
         $(document).ready(function() {
-            $('#menu-pengaturan').on('click', function() {
-                window.location.href = '{{ route('admin.setting') }}'; // Ganti dengan URL yang sesuai
+            $('#menu-admin-absensi').on('click', function() {
+                console.log("masuk testing");
+                window.location.href = '{{ route('admin.attendance') }}'; // Ganti dengan URL yang sesuai
+            });
+
+
+            $('#menu-user-absensi').on('click', function() {
+                console.log("masuk testing");
+                window.location.href = '{{ route('absen.user.index') }}'; // Ganti dengan URL yang sesuai
+            });
+
+            $('#menu-user-list-absensi').on('click', function() {
+                console.log("masuk testing");
+                window.location.href = '{{ route('absen.user.daftar') }}'; // Ganti dengan URL yang sesuai
             });
         });
     </script>

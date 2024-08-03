@@ -9,7 +9,7 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <i class="ki-outline ki-badge fs-1 me-2"></i>
-                    <h2>List Kehadiran Pegawai</h2>
+                    <h2>Kehadiran Pegawai {{$attendances->first()->user->name}}</h2>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -41,23 +41,25 @@
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Type</th>
-                                <th>Nama</th>
                                 <th>Masuk</th>
                                 <th>Pulang</th>
+                                <th>Surat Tugas</th>
+                                <th>Foto</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @forelse ($attendances as  $index => $attendance)
-                                <tr >
+                                <tr>
                                     <td>{{ ($attendances->currentPage() - 1) * $attendances->perPage() + $index + 1 }}
                                     </td>
-                                    <td><a href="{{ route('admin.attendance.detail', ['user_id'=>$attendance->user_id]) }}">{{ $attendance->date }} </a> </td>
+                                    <td>{{ $attendance->date }}</td>
                                     <td>{{ $attendance->type }}</td>
-                                    <td>{{ $attendance->user->name }}</td>
                                     <td>{{ $attendance->check_in ?? '-' }}</td>
                                     <td>{{ $attendance->check_out ?? '-' }}</td>
+                                    <td>{{ $attendance->file_assignment ?? '-' }}</td>
+                                    <td><img width="30" src="{{ asset('/assets/media/avatars/300-1.jpg') }}" alt=""></td>
                                     <td>{{ $attendance->status == 1 ? 'Diterima' : 'Ditolak' }}</td>
                                 </tr>
                             @empty
