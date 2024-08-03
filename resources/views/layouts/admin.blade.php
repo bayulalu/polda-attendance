@@ -200,7 +200,7 @@
                                         <!--begin:Menu link-->
                                         <a class="menu-link"
                                             href="{{ route('add.setting') }}"
-                                            target="_blank" title="Check out over 200 in-house components"
+                                            title="Stup jam kerja"
                                             data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
                                             data-bs-placement="right">
                                             <span class="menu-bullet">
