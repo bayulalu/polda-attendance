@@ -146,7 +146,7 @@
                         <!--begin::Button-->
                         <button type="submit" class="btn btn-primary">
                             <span wire:loading.remove>Simpan</span>
-                            <span class="indicator-progress" wire:loading> Menyimpan User...
+                            <span class="indicator-progress" wire:loading> Menyimpan user...
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                             </span>
                         </button>

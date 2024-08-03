@@ -11,6 +11,7 @@ use App\Livewire\Admin\AddUser;
 use App\Livewire\Admin\Setting;
 use App\Livewire\Admin\AddSetting;
 use App\Livewire\Admin\UpdateUser;
+use App\Livewire\Admin\UpdateSetting;
 use App\Livewire\Attendance\Index as ListAttendance;
 use App\Livewire\Post\Create;
 use App\Livewire\Post\Edit;
@@ -36,6 +37,7 @@ Route::get('/admin-update-user/{id}', UpdateUser::class)->name('admin.update.aku
 
 Route::get('/add-setting', AddSetting::class)->name('add.setting');
 Route::get('/admin-setting', Setting::class)->name('admin.setting');
+Route::get('/admin-setting/edit/{id}', UpdateSetting::class)->name('admin.setting.edit');
 
 
 Route::get('/admin-attendance', ListAttendance::class)->name('admin.attendance');

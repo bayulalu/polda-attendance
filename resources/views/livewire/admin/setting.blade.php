@@ -42,7 +42,7 @@
                                                 <i class="ki-solid ki-gear"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{ route('admin.update.akun', ['id'=> $setting->id]) }}">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin.setting.edit', ['id'=> $setting->id]) }}">Edit</a></li>
                                             </ul>
                                         </div>
                                     </td>
