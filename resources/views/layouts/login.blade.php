@@ -16,6 +16,11 @@
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }} " rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }} " rel="stylesheet" type="text/css" />
+    <style>
+        .text-oren{
+            color: #ffd808;
+        }
+    </style>
     <!--end::Global Stylesheets Bundle-->
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
@@ -50,6 +55,7 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
+                    <h2 class="text-oren fw-normal m-0">SISTIM MONITORING KEHADIRAN PERSONIL DITRESKRIMSUS POLDA NTB</h2>
                     <!--end::Title-->
                 </div>
                 <!--begin::Aside-->

@@ -66,11 +66,19 @@
                                                 <i class="ki-solid ki-gear"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{ route('admin.update.akun', ['id'=> $user->id]) }}">Edit</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="{{ route('admin.update.akun', ['id' => $user->id]) }}">Edit</a>
+                                                </li>
                                                 <li><a class="dropdown-item"
                                                         wire:click='statusUser({{ $user->id }})'>{{ $user->status ? 'Non Aktif' : 'Aktif' }}</a>
                                                 </li>
-                                                <li><a class="dropdown-item" wire:click='resetPassword({{ $user->id }})' >Reset Password</a></li>
+                                                <li><a class="dropdown-item"
+                                                        wire:click='resetPassword({{ $user->id }})'>Reset
+                                                        Password</a></li>
+                                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#kt_modal_stacked_1">Ijin / Cuti /
+                                                        DIK </a></li>
+
                                             </ul>
                                         </div>
                                     </td>
@@ -91,6 +99,86 @@
         </div>
         <!--end::Contacts-->
     </div>
+
+    {{-- MODAL --}}
+    <div class="modal fade" tabindex="-1" id="kt_modal_stacked_1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Status User</h3>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <div class="modal-body">
+                    <div class="fv-row mb-5 fv-plugins-icon-container">
+                        <label class="fs-6 fw-semibold form-label">
+                            <span class="required">Status</span>
+                            <span class="ms-1" data-bs-toggle="tooltip" aria-label="Enter the contact's name."
+                                data-bs-original-title="Enter the contact's name." data-kt-initialized="1">
+                                <i class="ki-outline ki-information fs-7"></i>
+                            </span>
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <select class="form-select" aria-label="pria" wire:model="day">
+                            <option selected value="">Pilih</option>
+                            <option value="ijin">Ijin</option>
+                            <option value="cuti">Cuti</option>
+                            <option value="dik">DIK</option>
+                        </select>
+                        <!--end::Input-->
+                        @error('day')
+                            <div
+                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="kt_td_picker_linked_1_input" class="form-label">Dari</label>
+                            <div class="input-group log-event" id="kt_td_picker_linked_1" data-td-target-input="nearest"
+                                data-td-target-toggle="nearest">
+                                <input id="kt_td_picker_linked_1_input" type="text" class="form-control"
+                                    data-td-target="#kt_td_picker_linked_1" />
+                                <span class="input-group-text" data-td-target="#kt_td_picker_linked_1"
+                                    data-td-toggle="datetimepicker">
+                                    <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="kt_td_picker_linked_2_input" class="form-label">Sampai</label>
+                            <div class="input-group log-event" id="kt_td_picker_linked_2" data-td-target-input="nearest"
+                                data-td-target-toggle="nearest">
+                                <input id="kt_td_picker_linked_2_input" type="text" class="form-control"
+                                    data-td-target="#kt_td_picker_linked_2" />
+                                <span class="input-group-text" data-td-target="#kt_td_picker_linked_2"
+                                    data-td-toggle="datetimepicker">
+                                    <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $("#kt_daterangepicker_1").daterangepicker({
             startDate: moment().subtract(7, 'days'),
@@ -100,15 +188,46 @@
                 format: 'YYYY-MM-DD'
             }
         });
+        const linkedPicker1Element = document.getElementById("kt_td_picker_linked_1");
+        const linked1 = new tempusDominus.TempusDominus(linkedPicker1Element, {
+            display: {
+                components: {
+                    clock: false // Hide the clock component
+                }
+            },
+            localization: {
+                format: 'yyyy-MM-dd' // Set date format
+            }
+        });
 
-        function loadScript(src) {
-            return new Promise(function(resolve, reject) {
-                var script = document.createElement('script');
-                script.src = src;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.body.appendChild(script);
+        const linked2 = new tempusDominus.TempusDominus(document.getElementById("kt_td_picker_linked_2"), {
+            useCurrent: false,
+            display: {
+                components: {
+                    clock: false // Hide the clock component
+                }
+            },
+            localization: {
+                format: 'yyyy-MM-dd' // Set date format
+            }
+        });
+
+        // Using event listeners
+        linkedPicker1Element.addEventListener(tempusDominus.Namespace.events.change, (e) => {
+            linked2.updateOptions({
+                restrictions: {
+                    minDate: e.detail.date,
+                },
             });
-        }
+        });
+
+        // Using subscribe method
+        const subscription = linked2.subscribe(tempusDominus.Namespace.events.change, (e) => {
+            linked1.updateOptions({
+                restrictions: {
+                    maxDate: e.date,
+                },
+            });
+        });
     </script>
 </div>

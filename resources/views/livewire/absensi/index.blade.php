@@ -42,8 +42,10 @@
                         <!--end::Label-->
                         <!--begin::Input-->
                         <select class="form-select" aria-label="Select example" id="type">
-                            <option value="Ditempat">Ditempat</option>
-                            <option value="Tugas Luar Kantor">Tugas Luar Kantor</option>
+                            <option value="Dikantor">Piket</option>
+                            <option value="Hadir">Hadir</option>
+                            <option value="Dik">Dik</option>
+                            <option value="Tugas">Tugas</option>
                         </select>
                         <!--end::Input-->
                         <div
@@ -57,7 +59,7 @@
                     <div class="fv-row mb-7" id="surat-tugas">
                         <!--begin::Label-->
                         <label class="fs-6 fw-semibold form-label mt-3">
-                            <span>Upload Surat Tugas</span>
+                            <span>Upload Surat Tugas Max 10 MB (PDF/JPG)</span>
                             <span class="ms-1" data-bs-toggle="tooltip"
                                 aria-label="Enter the contact's company name (optional)."
                                 data-bs-original-title="Enter the contact's company name (optional)."
@@ -308,7 +310,7 @@
 
         $('#type').change(function (e) { 
             var type = $('#type').val();
-            if (type == 'Tugas Luar Kantor') {
+            if (type == 'Tugas') {
                 $('#surat-tugas').show();
             }else{
                 $('#surat-tugas').hide();

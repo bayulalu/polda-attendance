@@ -50,6 +50,7 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
+                    <p>SISTIM MONITORING KEHADIRAN PERSONIL BERBASIS WEB DI LINGKUNGAN DITRESKRIMSUS POLDA NTB</p>
                     <!--end::Title-->
                 </div>
                 <!--begin::Aside-->
