@@ -11,7 +11,7 @@ class UpdateUser extends Component
     public $id;
     public $nip;
     public $name;
-    public $email;
+    public $rank;
     public $gender;
     public $position;
 
@@ -19,19 +19,19 @@ class UpdateUser extends Component
     {
         $validate = $this->validate([
             'nip' => 'required',
-            'email' => 'required|email',
             'name' => 'required',
             'gender' => 'required',
             'position' => 'required',
+            'rank' => 'required'
         ]);
 
         $user = User::find($this->id);
         $user->update([
             'nip' => $this->nip,
-            'email' => $this->email,
             'name' => $this->name,
             'gender' => $this->gender,
-            'position' => $this->position
+            'position' => $this->position,
+            'rank' => $this->rank
         ]);
 
         return redirect()->route('admin.akun');
@@ -46,9 +46,10 @@ class UpdateUser extends Component
         $this->id   = $user->id;
         $this->nip    = $user->nip;
         $this->name  = $user->name;
-        $this->email  = $user->email;
         $this->gender  = $user->gender;
         $this->position  = $user->position;
+        $this->rank  = $user->rank;
+
     }
 
 

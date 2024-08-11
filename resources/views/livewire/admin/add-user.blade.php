@@ -76,23 +76,6 @@
                             @enderror
                         </div>
 
-                        <div class="fv-row mb-7 fv-plugins-icon-container">
-                            <!--begin::Label-->
-                            <div class="">
-                                <label for="exampleFormControlInput1" class="required form-label">Email</label>
-                                <input type="email" class="form-control" wire:model="email" />
-                            </div>
-
-                            <!--end::Input-->
-                            @error('email')
-                                <div
-                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row mb-7 fv-plugins-icon-container">
@@ -126,7 +109,7 @@
                             <!--begin::Label-->
                             <div class="">
                                 <label for="exampleFormControlInput1" class="required form-label">Pangkat</label>
-                                <input type="text" class="form-control" wire:model="position" />
+                                <input type="text" class="form-control" wire:model="rank" />
                             </div>
 
                             <!--end::Input-->
