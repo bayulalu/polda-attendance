@@ -1,3 +1,5 @@
+@section('user', 'active')
+
 <div class=" d-flex flex-column-fluid flex-center">
 
     <div class="col-xl-8 col-md-10 col-sm-12">
@@ -26,9 +28,10 @@
                         <!--begin::Title-->
                         <div class="d-flex">
                             <input type="text" class="form-control form-control-solid me-3 flex-grow-1"
-                                name="search" id="kt_daterangepicker_1" />
+                                placeholder="Nama" wire:model="searchName" />
 
-                            <button class="btn btn-primary fw-bold flex-shrink-0">Tampilkan</button>
+                            <button class="btn btn-primary fw-bold flex-shrink-0"
+                                wire:click="applyFilter">Tampilkan</button>
                         </div>
                         <!--end::Title-->
                     </div>
@@ -181,14 +184,6 @@
     </div>
 
     <script>
-        $("#kt_daterangepicker_1").daterangepicker({
-            startDate: moment().subtract(7, 'days'),
-            endDate: moment(),
-            maxDate: moment(),
-            locale: {
-                format: 'YYYY-MM-DD'
-            }
-        });
         const linkedPicker1Element = document.getElementById("kt_td_picker_linked_1");
         const linked1 = new tempusDominus.TempusDominus(linkedPicker1Element, {
             display: {

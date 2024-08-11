@@ -7,7 +7,12 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
+    public $searchTerm;
+    
+    public function mount()
+    {
+        $this->searchTerm = now()->format('Y-m-d');
+    }
 
     public function statusAttendance($id)
     {
@@ -22,8 +27,10 @@ class Index extends Component
     }
 
     public function render()
-    {   
-        $attendances = Attendance::whereDate('date', now())->latest()->paginate(20);
+    {
+        $query = Attendance::whereDate('date', $this->searchTerm);
+        $attendances = $query->latest()->paginate(30);
+
         return view('livewire.attendance.index', compact('attendances'));
     }
 }

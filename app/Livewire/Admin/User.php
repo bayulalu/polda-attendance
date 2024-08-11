@@ -10,7 +10,8 @@ use Illuminate\Support\Str;
 class User extends Component
 {
     use WithPagination;
-
+    public $searchName;
+    
     public function statusUser($id)
     {
         $user = ModelsUser::find($id);
@@ -18,17 +19,28 @@ class User extends Component
         $user->save();
     }
 
+    public function applyFilter()
+    {
+       
+    }
+
     public function resetPassword($id)
     {
         $user = ModelsUser::find($id);
-        // $user->password = Str::random(10);
-        $user->password = '123';
+        $user->password = $user->nip;
+        // $user->password = '123';
         $user->save();
     }
 
     public function render()
     {
-        $users = ModelsUser::latest()->paginate(20);
+      $query = ModelsUser::query();
+
+    if ($this->searchName) {
+        $query->where('name', 'like', '%' . $this->searchName . '%');
+    }
+
+    $users = $query->latest()->paginate(20);
 
         return view('livewire.admin.user', compact('users'));
     }

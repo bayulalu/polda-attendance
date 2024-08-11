@@ -106,131 +106,133 @@
                                     <!--end:Menu link-->
 
                                 </div>
-                            <!--end:Menu item-->
+                                <!--end:Menu item-->
                             @elseif (Auth::user()->is_admin == 1)
-
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center" id="menu-admin-absensi">
-                                    <span class="menu-icon me-0">
-                                        <i class="ki-outline ki-home-2 fs-2x"></i>
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="right-start" class="menu-item py-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link menu-center" id="menu-admin-absensi">
+                                        <span class="menu-icon me-0">
+                                            <i class="ki-outline ki-home-2 fs-2x"></i>
+                                        </span>
+                                        <span class="menu-title">Absensi</span>
                                     </span>
-                                    <span class="menu-title">Absensi</span>
-                                </span>
-                                <!--end:Menu link-->
-
-                            </div>
-
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center active">
-                                    <span class="menu-icon me-0 ">
-                                        <i class="ki-outline ki-notification-status fs-2x"></i>
-                                    </span>
-                                    <span class="menu-title">User</span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu content-->
-                                        <div class="menu-content">
-                                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
-                                        </div>
-                                        <!--end:Menu content-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link active" href="{{ route('admin.tambah.akun') }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Tambah Akun</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{ route('admin.akun') }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">List Akun</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
+                                    <!--end:Menu link-->
 
                                 </div>
-                                <!--end:Menu sub-->
 
-                            </div>
-                            <!--end:Menu item-->
-
-                            <!--begin:Menu item-->
-                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item py-2">
-                                <!--begin:Menu link-->
-                                <span class="menu-link menu-center">
-                                    <span class="menu-icon me-0">
-                                        <i class="ki-outline ki-briefcase fs-2x"></i>
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="right-start" class="menu-item py-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link menu-center  @yield('user')">
+                                        <span class="menu-icon me-0 ">
+                                            <i class="ki-outline ki-notification-status fs-2x"></i>
+                                        </span>
+                                        <span class="menu-title">User</span>
                                     </span>
-                                    <span class="menu-title">Pengaturan</span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div
-                                    class="menu-sub menu-sub-dropdown px-2 py-4 w-200px w-lg-225px mh-75 overflow-auto">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu content-->
-                                        <div class="menu-content">
-                                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Stup Jam Kerja</span>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu content-->
+                                            <div class="menu-content">
+                                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
+                                            </div>
+                                            <!--end:Menu content-->
                                         </div>
-                                        <!--end:Menu content-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{ route('add.setting') }}" title="Stup jam kerja"
-                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
-                                            data-bs-placement="right">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Tambah</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{ route('admin.setting') }}"
-                                            title="List pengaturan" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                            data-bs-dismiss="click" data-bs-placement="right">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">List </span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href="{{ route('admin.tambah.akun') }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Tambah Akun</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('admin.akun') }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">List Akun</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
 
-                                    <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+
                                 </div>
-                                <!--end:Menu sub-->
-                            </div>
-                            <!--end:Menu item-->
+                                <!--end:Menu item-->
+
+                                <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="right-start" class="menu-item py-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link menu-center">
+                                        <span class="menu-icon me-0">
+                                            <i class="ki-outline ki-briefcase fs-2x"></i>
+                                        </span>
+                                        <span class="menu-title">Pengaturan</span>
+                                    </span>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div
+                                        class="menu-sub menu-sub-dropdown px-2 py-4 w-200px w-lg-225px mh-75 overflow-auto">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu content-->
+                                            <div class="menu-content">
+                                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">Stup Jam
+                                                    Kerja</span>
+                                            </div>
+                                            <!--end:Menu content-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('add.setting') }}"
+                                                title="Stup jam kerja" data-bs-toggle="tooltip"
+                                                data-bs-trigger="hover" data-bs-dismiss="click"
+                                                data-bs-placement="right">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Tambah</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('admin.setting') }}"
+                                                title="List pengaturan" data-bs-toggle="tooltip"
+                                                data-bs-trigger="hover" data-bs-dismiss="click"
+                                                data-bs-placement="right">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">List </span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+
+                                        <!--end:Menu item-->
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
+                                <!--end:Menu item-->
                             @endif
 
                         </div>
@@ -361,15 +363,17 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Username-->
                                                 <div class="d-flex flex-column">
-                                                    <div class="fw-bold d-flex align-items-center fs-5  text-capitalize">{{Auth::user()->name}}
+                                                    <div
+                                                        class="fw-bold d-flex align-items-center fs-5  text-capitalize">
+                                                        {{ Auth::user()->name }}
                                                     </div>
-                                                  
+
                                                 </div>
                                                 <!--end::Username-->
                                             </div>
                                         </div>
-                                      
-                                      
+
+
 
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
@@ -379,8 +383,7 @@
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-5">
-                                            <a href="{{ route('logout') }}"
-                                                class="menu-link px-5">Keluar</a>
+                                            <a href="{{ route('logout') }}" class="menu-link px-5">Keluar</a>
                                         </div>
                                         <!--end::Menu item-->
                                     </div>
@@ -475,11 +478,11 @@
             });
 
             $('#menu-user-absensi').on('click', function() {
-                window.location.href = '{{ route('absen.user.daftar') }}'; 
+                window.location.href = '{{ route('absen.user.daftar') }}';
             });
 
             $('#menu-user-list-absensi').on('click', function() {
-                window.location.href = '{{ route('absen.user.index') }}'; 
+                window.location.href = '{{ route('absen.user.index') }}';
             });
         });
     </script>

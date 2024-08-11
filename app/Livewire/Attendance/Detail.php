@@ -17,7 +17,7 @@ class Detail extends Component
 
     public function render()
     {
-        $attendances = Attendance::where('user_id', $this->user_id)->paginate(40);
+        $attendances = Attendance::where('user_id', $this->user_id)->paginate(30);
         return view('livewire.attendance.detail', compact('attendances'));
     }
 }

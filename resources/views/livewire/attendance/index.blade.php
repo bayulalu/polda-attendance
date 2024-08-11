@@ -17,7 +17,7 @@
             <!--begin::Card body-->
             <div class="card-body pt-5">
                 {{-- awal --}}
-                {{-- <div>
+                <div>
                     <!--begin::Input wrapper-->
                     <div class="w-100">
                         <!--begin::Title-->
@@ -25,13 +25,16 @@
                         <!--end::Title-->
 
                         <!--begin::Title-->
-                      
+                        <div class="d-flex">
+                            <input type="text" class="form-control form-control-solid me-3 flex-grow-1"
+                                id="kt_daterangepicker_1" wire:model="searchTerm" />
+                        </div>
                         <!--end::Title-->
                     </div>
                     <!--end::Input wrapper-->
                 </div>
 
-                <br><br> --}}
+                <br><br>
                 <!--begin::Form-->
                 <div class="table-responsive">
 
@@ -55,9 +58,11 @@
                                 <tr>
                                     <td>{{ ($attendances->currentPage() - 1) * $attendances->perPage() + $index + 1 }}
                                     </td>
-                                    <td><a
+                                    <td>
+                                        <a
                                             href="{{ route('admin.attendance.detail', ['user_id' => $attendance->user_id]) }}">{{ $attendance->date }}
-                                        </a> </td>
+                                        </a>
+                                    </td>
                                     <td>{{ $attendance->type }}</td>
                                     <td>{{ $attendance->user->name }}</td>
                                     <td>{{ $attendance->check_in ?? '-' }}</td>
@@ -86,6 +91,8 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{ $attendances->links('vendor.pagination.bootstrap-5') }}
+
                 </div>
                 <!--end::Form-->
             </div>
@@ -93,5 +100,18 @@
         </div>
         <!--end::Contacts-->
     </div>
+    <script>
 
+        $('#kt_daterangepicker_1').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 2024,
+            maxDate: moment().format('YYYY-MM-DD'),
+            locale: {
+                format: 'YYYY-MM-DD'
+            }
+        }, function(start) {
+            @this.set('searchTerm', start.format('YYYY-MM-DD'));
+        });
+    </script>
 </div>
