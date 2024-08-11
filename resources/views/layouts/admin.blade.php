@@ -106,7 +106,7 @@
                                     <!--end:Menu link-->
 
                                 </div>
-                                
+
                                 <!--end:Menu item-->
                             @elseif (Auth::user()->is_admin == 1)
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
@@ -405,14 +405,9 @@
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Container-->
                     <div id="kt_content_container" class="container-xxl">
-                        <!--begin::Layout-->
                         {{ $slot }}
-
-                        <!--end::Layout-->
-                        <!--begin::Modals-->
-
-                        <!--end::Modals-->
                     </div>
+
                     <!--end::Container-->
                 </div>
                 <!--end::Content-->

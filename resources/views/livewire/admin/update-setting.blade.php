@@ -1,4 +1,4 @@
-<div class=" d-flex flex-column-fluid flex-center">
+<div class=" row g-5 gx-xl-10 mb-5 mb-xl-10  justify-content-center align-items-center ">
 
     <div class="col-xl-8 col-md-10 col-sm-12">
         <div class="card card-flush h-lg-100" id="kt_contacts_main">

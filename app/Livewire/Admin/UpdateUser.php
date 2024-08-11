@@ -33,7 +33,7 @@ class UpdateUser extends Component
             'position' => $this->position,
             'rank' => $this->rank
         ]);
-
+        request()->session()->flash('success', 'Berhasil Update User ' . $user->name);
         return redirect()->route('admin.akun');
     }
 
