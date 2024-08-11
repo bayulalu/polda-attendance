@@ -1,5 +1,6 @@
-<div class=" d-flex flex-column-fluid flex-center">
+@section('setting', 'active')
 
+<div class=" d-flex flex-column-fluid flex-center">
     <div class="col-xl-8 col-md-10 col-sm-12">
 
         <!--begin::Contacts-->

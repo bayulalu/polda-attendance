@@ -83,9 +83,9 @@
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                     data-kt-menu-placement="right-start" class="menu-item py-2">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link menu-center" id="menu-user-list-absensi">
+                                    <span class="menu-link menu-center  @yield('atten')" id="menu-user-list-absensi">
                                         <span class="menu-icon me-0">
-                                            <i class="ki-outline ki-home-2 fs-2x"></i>
+                                            <i class="fa-regular fa-clipboard fs-2x"></i>
                                         </span>
                                         <span class="menu-title">Absensi</span>
                                     </span>
@@ -97,23 +97,24 @@
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                     data-kt-menu-placement="right-start" class="menu-item py-2">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link menu-center" id="menu-user-absensi">
+                                    <span class="menu-link menu-center @yield('list-atten')" id="menu-user-absensi">
                                         <span class="menu-icon me-0">
-                                            <i class="ki-outline ki-notification-status fs-2x"></i>
+                                            <i class="fa-solid fa-clipboard fs-2x"></i>
                                         </span>
                                         <span class="menu-title">Daftar Absensi</span>
                                     </span>
                                     <!--end:Menu link-->
 
                                 </div>
+                                
                                 <!--end:Menu item-->
                             @elseif (Auth::user()->is_admin == 1)
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                     data-kt-menu-placement="right-start" class="menu-item py-2">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link menu-center" id="menu-admin-absensi">
+                                    <span class="menu-link menu-center @yield('absen-admin')" id="menu-admin-absensi">
                                         <span class="menu-icon me-0">
-                                            <i class="ki-outline ki-home-2 fs-2x"></i>
+                                            <i class="fa-sharp-duotone fa-solid fa-clipboard fs-2x"></i>
                                         </span>
                                         <span class="menu-title">Absensi</span>
                                     </span>
@@ -126,7 +127,7 @@
                                     <!--begin:Menu link-->
                                     <span class="menu-link menu-center  @yield('user')">
                                         <span class="menu-icon me-0 ">
-                                            <i class="ki-outline ki-notification-status fs-2x"></i>
+                                            <i class="fa-sharp-duotone fa-solid fa-user fs-2x"></i>
                                         </span>
                                         <span class="menu-title">User</span>
                                     </span>
@@ -177,9 +178,9 @@
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                     data-kt-menu-placement="right-start" class="menu-item py-2">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link menu-center">
+                                    <span class="menu-link menu-center @yield('setting')">
                                         <span class="menu-icon me-0">
-                                            <i class="ki-outline ki-briefcase fs-2x"></i>
+                                            <i class="fa-sharp-duotone fa-solid fa-gears fs-2x"></i>
                                         </span>
                                         <span class="menu-title">Pengaturan</span>
                                     </span>

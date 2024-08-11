@@ -1,3 +1,6 @@
+@section('atten', 'active')
+
+
 <style>
     #surat-tugas {
         display: none;
