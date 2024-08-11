@@ -361,12 +361,9 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Username-->
                                                 <div class="d-flex flex-column">
-                                                    <div class="fw-bold d-flex align-items-center fs-5">Max Smith
-                                                        <span
-                                                            class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
+                                                    <div class="fw-bold d-flex align-items-center fs-5  text-capitalize">{{Auth::user()->name}}
                                                     </div>
-                                                    <a href="#"
-                                                        class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                                  
                                                 </div>
                                                 <!--end::Username-->
                                             </div>
@@ -474,19 +471,15 @@
     <script>
         $(document).ready(function() {
             $('#menu-admin-absensi').on('click', function() {
-                console.log("masuk testing");
-                window.location.href = '{{ route('admin.attendance') }}'; // Ganti dengan URL yang sesuai
+                window.location.href = '{{ route('admin.attendance') }}';
             });
 
-
             $('#menu-user-absensi').on('click', function() {
-                console.log("masuk testing");
-                window.location.href = '{{ route('absen.user.index') }}'; // Ganti dengan URL yang sesuai
+                window.location.href = '{{ route('absen.user.daftar') }}'; 
             });
 
             $('#menu-user-list-absensi').on('click', function() {
-                console.log("masuk testing");
-                window.location.href = '{{ route('absen.user.daftar') }}'; // Ganti dengan URL yang sesuai
+                window.location.href = '{{ route('absen.user.index') }}'; 
             });
         });
     </script>

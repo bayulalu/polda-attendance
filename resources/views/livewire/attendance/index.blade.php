@@ -45,20 +45,39 @@
                                 <th>Masuk</th>
                                 <th>Pulang</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
+
                             </tr>
                         </thead>
                         <tbody>
 
                             @forelse ($attendances as  $index => $attendance)
-                                <tr >
+                                <tr>
                                     <td>{{ ($attendances->currentPage() - 1) * $attendances->perPage() + $index + 1 }}
                                     </td>
-                                    <td><a href="{{ route('admin.attendance.detail', ['user_id'=>$attendance->user_id]) }}">{{ $attendance->date }} </a> </td>
+                                    <td><a
+                                            href="{{ route('admin.attendance.detail', ['user_id' => $attendance->user_id]) }}">{{ $attendance->date }}
+                                        </a> </td>
                                     <td>{{ $attendance->type }}</td>
                                     <td>{{ $attendance->user->name }}</td>
                                     <td>{{ $attendance->check_in ?? '-' }}</td>
                                     <td>{{ $attendance->check_out ?? '-' }}</td>
                                     <td>{{ $attendance->status == 1 ? 'Diterima' : 'Ditolak' }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle btn-sm"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="ki-solid ki-gear"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item"
+                                                        wire:click='statusAttendance({{ $attendance->id }})'>{{ $attendance->status == 1 ? 'Tolak' : 'Terima' }}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </td>
+
                                 </tr>
                             @empty
                                 <div class="alert alert-danger">
