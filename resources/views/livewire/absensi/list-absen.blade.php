@@ -1,7 +1,23 @@
 <div class=" d-flex flex-column-fluid flex-center">
 
     <div class="col-xl-8 col-md-10 col-sm-12">
+        @if (session('success'))
+            <!--begin::Alert-->
+            <div class="alert alert-success  d-flex align-items-center p-5">
+                <!--begin::Icon-->
+                <i class="ki-duotone ki-double-check  fs-2hx text-success me-4 ">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                </i>
+                <!--end::Icon-->
 
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column">
+                    <span>{{ session('success') }}.</span>
+                </div>
+                <!--end::Wrapper-->
+            </div>
+        @endif
         <!--begin::Contacts-->
         <div class="card card-flush h-lg-100" id="kt_contacts_main">
             <!--begin::Card header-->
@@ -53,7 +69,7 @@
 
                             @forelse ($attendances as  $index => $attendance)
                                 <tr>
-                                    
+
                                     <td>{{ ($attendances->currentPage() - 1) * $attendances->perPage() + $index + 1 }}
                                     </td>
                                     <td>

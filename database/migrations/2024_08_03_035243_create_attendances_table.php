@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attemdances', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type', 100);
             $table->string('file_assignment')->nullable();
             $table->string('foto')->nullable();
             $table->string('check_in', 10)->nullable();
             $table->string('check_out', 10)->nullable();
+            $table->string('file_assignment_out')->nullable();
+            $table->string('foto_out')->nullable();
             $table->tinyInteger('status')->default(1);
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attemdances');
+        Schema::dropIfExists('attendances');
     }
 };

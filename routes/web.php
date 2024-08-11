@@ -2,6 +2,7 @@
 
 // use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Testing;
 use App\Http\Middleware\AdminMiddleware;
@@ -30,17 +31,14 @@ Route::get('/login', Auth::class)->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', Auth::class);
 
-// Route::get('/layout', [AuthController::class, 'layout'])->name('layout');
-
 Route::middleware([AuthMiddleware::class])->group(function () {
     Route::middleware([UserMiddleware::class])->group(function () {
-
         Route::get('/attendance', AbsenUser::class)->name('absen.user.index');
+        Route::post('/attendance', [AttendanceController::class, 'store'])->name('absen.user.post');
         Route::get('/list-attendance', AbsenList::class)->name('absen.user.daftar');
     });
 
     Route::middleware([AdminMiddleware::class])->group(function () {
-
         // ADMIN LIST USER
         Route::get('/admin-list-user', DaftarUser::class)->name('admin.akun');
         Route::get('/admin-create-user', AddUser::class)->name('admin.tambah.akun');

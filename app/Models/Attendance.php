@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Attemdance extends Model
+class Attendance extends Model
 {
     use HasFactory, Notifiable;
 
@@ -22,7 +22,9 @@ class Attemdance extends Model
         'user_id',
         'settings_id',
         'date',
-        'status'
+        'status',
+        'file_assignment_out',
+        'foto_out'
     ];
 
     public function user()

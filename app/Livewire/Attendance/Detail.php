@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Attendance;
 
-use App\Models\Attemdance;
+use App\Models\Attendance;
 use Livewire\Component;
 
 class Detail extends Component
@@ -17,7 +17,7 @@ class Detail extends Component
 
     public function render()
     {
-        $attendances = Attemdance::where('user_id', $this->user_id)->paginate(40);
+        $attendances = Attendance::where('user_id', $this->user_id)->paginate(40);
         return view('livewire.attendance.detail', compact('attendances'));
     }
 }

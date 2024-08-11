@@ -43,9 +43,10 @@
                             <tr class="fw-bold fs-6 text-gray-800">
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>NIP</th>
-                                <th>Email</th>
                                 <th>Pangkat</th>
+                                <th>NIP/NRP</th>
+                                <th>Jabatan</th>
+                                <th>Email</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -55,9 +56,10 @@
                                 <tr>
                                     <td>{{ ($users->currentPage() - 1) * $users->perPage() + $index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
+                                    <td>{{ $user->rank }}</td>
                                     <td>{{ $user->nip }}</td>
-                                    <td>{{ $user->email }}</td>
                                     <td>{{ $user->position }}</td>
+                                    <td>{{ $user->email }}</td>
                                     <td>{{ $user->status ? 'Aktif' : 'Tidak Aktif' }}</td>
                                     <td>
                                         <div class="btn-group">
@@ -76,8 +78,7 @@
                                                         wire:click='resetPassword({{ $user->id }})'>Reset
                                                         Password</a></li>
                                                 <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                        data-bs-target="#kt_modal_stacked_1">Ijin / Cuti /
-                                                        DIK </a></li>
+                                                        data-bs-target="#kt_modal_stacked_1">Ijin / Cuti </a></li>
 
                                             </ul>
                                         </div>
@@ -130,7 +131,7 @@
                             <option selected value="">Pilih</option>
                             <option value="ijin">Ijin</option>
                             <option value="cuti">Cuti</option>
-                            <option value="dik">DIK</option>
+                            {{-- <option value="dik">DIK</option> --}}
                         </select>
                         <!--end::Input-->
                         @error('day')

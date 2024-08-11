@@ -135,6 +135,22 @@
                         @enderror
                     </div>
 
+                    <div class="fv-row mb-7 fv-plugins-icon-container">
+                        <!--begin::Label-->
+                        <div class="">
+                            <label for="exampleFormControlInput1" class="required form-label">Jabatan</label>
+                            <input type="text" class="form-control" wire:model="position"/>
+                        </div>
+
+                        <!--end::Input-->
+                        @error('position')
+                            <div
+                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
 
                     <!--begin::Separator-->
                     <div class="separator mb-6"></div>
