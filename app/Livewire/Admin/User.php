@@ -11,19 +11,31 @@ class User extends Component
 {
     use WithPagination;
     public $searchName;
-    
+    public $selectedUser;
+    public $statusLeave;
+    public $startDate;
+    public $endDate;
+
     public function statusUser($id)
     {
         $user = ModelsUser::find($id);
         $user->status = !$user->status;
         $user->save();
         request()->session()->flash('success', 'Status User ' . $user->name . ' Sudah Di Ubah ');
-
     }
 
-    public function applyFilter()
+    public function applyFilter() {}
+
+    public function selectUser($userId)
     {
-       
+        $this->selectedUser = ModelsUser::find($userId);
+        // Bisa juga di sini Anda set nilai-nilai awal yang mungkin diperlukan.
+        $this->dispatch('openModal');
+    }
+
+    public function leave()
+    {
+        dd($this->statusLeave, $this->startDate, $this->endDate);
     }
 
     public function resetPassword($id)
@@ -33,18 +45,17 @@ class User extends Component
         // $user->password = '123';
         $user->save();
         request()->session()->flash('success', 'Reset ' . $user->name .  ' Password Berhasil');
-
     }
 
     public function render()
     {
-      $query = ModelsUser::query();
+        $query = ModelsUser::query();
 
-    if ($this->searchName) {
-        $query->where('name', 'like', '%' . $this->searchName . '%');
-    }
+        if ($this->searchName) {
+            $query->where('name', 'like', '%' . $this->searchName . '%');
+        }
 
-    $users = $query->latest()->paginate(20);
+        $users = $query->latest()->paginate(20);
 
         return view('livewire.admin.user', compact('users'));
     }

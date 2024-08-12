@@ -21,6 +21,24 @@
             </div>
         @endif
 
+        @if (session('error'))
+        <!--begin::Alert-->
+        <div class="alert alert-danger  d-flex align-items-center p-5">
+            <!--begin::Icon-->
+            <i class="ki-duotone ki-double-check  fs-2hx text-danger me-4 ">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            <!--end::Icon-->
+
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column">
+                <span>{{ session('error') }}.</span>
+            </div>
+            <!--end::Wrapper-->
+        </div>
+    @endif
+
 
 
         <!--begin::Contacts-->
@@ -97,8 +115,9 @@
                                                 <li><a class="dropdown-item"
                                                         wire:click='resetPassword({{ $user->id }})'>Reset
                                                         Password</a></li>
-                                                <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                        data-bs-target="#kt_modal_stacked_1">Ijin / Cuti </a></li>
+                                                <li><a class="dropdown-item"
+                                                        wire:click="selectUser({{ $user->id }})">Ijin / Cuti </a>
+                                                </li>
 
                                             </ul>
                                         </div>
@@ -125,82 +144,92 @@
     <div class="modal fade" tabindex="-1" id="kt_modal_stacked_1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Status User</h3>
-
-                    <!--begin::Close-->
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                        aria-label="Close">
-                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                <form action="{{ route('admin.leave') }}" method="POST">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-capitalize ">Permohonan Ijin {{ $selectedUser->name ?? '' }}</h3>
+                        @csrf
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                        <!--end::Close-->
                     </div>
-                    <!--end::Close-->
-                </div>
-
-                <div class="modal-body">
-                    <div class="fv-row mb-5 fv-plugins-icon-container">
-                        <label class="fs-6 fw-semibold form-label">
-                            <span class="required">Status</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" aria-label="Enter the contact's name."
-                                data-bs-original-title="Enter the contact's name." data-kt-initialized="1">
-                                <i class="ki-outline ki-information fs-7"></i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
-                        <select class="form-select" aria-label="pria" wire:model="day">
-                            <option selected value="">Pilih</option>
-                            <option value="ijin">Ijin</option>
-                            <option value="cuti">Cuti</option>
-                            {{-- <option value="dik">DIK</option> --}}
-                        </select>
-                        <!--end::Input-->
-                        @error('day')
-                            <div
-                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="kt_td_picker_linked_1_input" class="form-label">Dari</label>
-                            <div class="input-group log-event" id="kt_td_picker_linked_1" data-td-target-input="nearest"
-                                data-td-target-toggle="nearest">
-                                <input id="kt_td_picker_linked_1_input" type="text" class="form-control"
-                                    data-td-target="#kt_td_picker_linked_1" />
-                                <span class="input-group-text" data-td-target="#kt_td_picker_linked_1"
-                                    data-td-toggle="datetimepicker">
-                                    <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
-                                            class="path2"></span></i>
+                    <input type="hidden" name="userId" value="{{$selectedUser->id ?? ''}}">
+                    <div class="modal-body">
+                        <div class="fv-row mb-5 fv-plugins-icon-container">
+                            <label class="fs-6 fw-semibold form-label">
+                                <span class="required">Status</span>
+                                <span class="ms-1" data-bs-toggle="tooltip" aria-label="Enter the contact's name."
+                                    data-bs-original-title="Enter the contact's name." data-kt-initialized="1">
+                                    <i class="ki-outline ki-information fs-7"></i>
                                 </span>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <select class="form-select" aria-label="pria" name="status">
+                                <option selected value="">Pilih</option>
+                                <option value="ijin">Ijin</option>
+                                <option value="cuti">Cuti</option>
+                                {{-- <option value="dik">DIK</option> --}}
+                            </select>
+                            <!--end::Input-->
+                            @error('day')
+                                <div
+                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="kt_td_picker_linked_1_input" class="form-label">Dari</label>
+                                <div class="input-group log-event" id="kt_td_picker_linked_1"
+                                    data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                    <input id="kt_td_picker_linked_1_input" type="text" class="form-control"
+                                        data-td-target="#kt_td_picker_linked_1" name="startDate" />
+                                    <span class="input-group-text" data-td-target="#kt_td_picker_linked_1"
+                                        data-td-toggle="datetimepicker">
+                                        <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
+                                                class="path2"></span></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="kt_td_picker_linked_2_input" class="form-label">Sampai</label>
+                                <div class="input-group log-event" id="kt_td_picker_linked_2"
+                                    data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                    <input id="kt_td_picker_linked_2_input" type="text" class="form-control"
+                                        data-td-target="#kt_td_picker_linked_2" name="endDate" />
+                                    <span class="input-group-text" data-td-target="#kt_td_picker_linked_2"
+                                        data-td-toggle="datetimepicker">
+                                        <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
+                                                class="path2"></span></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="kt_td_picker_linked_2_input" class="form-label">Sampai</label>
-                            <div class="input-group log-event" id="kt_td_picker_linked_2" data-td-target-input="nearest"
-                                data-td-target-toggle="nearest">
-                                <input id="kt_td_picker_linked_2_input" type="text" class="form-control"
-                                    data-td-target="#kt_td_picker_linked_2" />
-                                <span class="input-group-text" data-td-target="#kt_td_picker_linked_2"
-                                    data-td-toggle="datetimepicker">
-                                    <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span
-                                            class="path2"></span></i>
-                                </span>
-                            </div>
-                        </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
 
     <script>
+        window.addEventListener('openModal', event => {
+            const modal = new bootstrap.Modal(document.getElementById('kt_modal_stacked_1'));
+            modal.show();
+        });
+
+
         const linkedPicker1Element = document.getElementById("kt_td_picker_linked_1");
         const linked1 = new tempusDominus.TempusDominus(linkedPicker1Element, {
             display: {
@@ -227,20 +256,28 @@
 
         // Using event listeners
         linkedPicker1Element.addEventListener(tempusDominus.Namespace.events.change, (e) => {
+            console.log('Linked Picker 1 Date:', e.detail.date);
+            const selectedDate1 = e.detail.date.toISOString().split('T')[0];
             linked2.updateOptions({
                 restrictions: {
                     minDate: e.detail.date,
                 },
             });
+            $('#kt_td_picker_linked_1_input').val(selectedDate1);
+
         });
 
         // Using subscribe method
+
         const subscription = linked2.subscribe(tempusDominus.Namespace.events.change, (e) => {
+            console.log('Linked Picker 2 Date:', e.detail.date);
+            const selectedDate2 = e.detail.date.toISOString().split('T')[0];
             linked1.updateOptions({
                 restrictions: {
-                    maxDate: e.date,
+                    maxDate: e.detail.date,
                 },
             });
+            $('#kt_td_picker_linked_2_input').val(selectedDate2);
         });
     </script>
 </div>

@@ -5,6 +5,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Testing;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -43,6 +44,8 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::get('/admin-list-user', DaftarUser::class)->name('admin.akun');
         Route::get('/admin-create-user', AddUser::class)->name('admin.tambah.akun');
         Route::get('/admin-update-user/{id}', UpdateUser::class)->name('admin.update.akun');
+        Route::post('/admin-leave', [UserController::class, 'leave'])->name('admin.leave');
+
 
         // ADMIN LIST SETTING
         Route::get('/add-setting', AddSetting::class)->name('add.setting');
