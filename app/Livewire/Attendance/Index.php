@@ -29,7 +29,7 @@ class Index extends Component
     public function render()
     {
         $query = Attendance::whereDate('date', $this->searchTerm);
-        $attendances = $query->latest()->paginate(30);
+        $attendances = $query->latest()->paginate(20);
 
         return view('livewire.attendance.index', compact('attendances'));
     }

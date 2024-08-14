@@ -22,22 +22,22 @@
         @endif
 
         @if (session('error'))
-        <!--begin::Alert-->
-        <div class="alert alert-danger  d-flex align-items-center p-5">
-            <!--begin::Icon-->
-            <i class="ki-duotone ki-double-check  fs-2hx text-danger me-4 ">
-                <span class="path1"></span>
-                <span class="path2"></span>
-            </i>
-            <!--end::Icon-->
+            <!--begin::Alert-->
+            <div class="alert alert-danger  d-flex align-items-center p-5">
+                <!--begin::Icon-->
+                <i class="ki-duotone ki-double-check  fs-2hx text-danger me-4 ">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                </i>
+                <!--end::Icon-->
 
-            <!--begin::Wrapper-->
-            <div class="d-flex flex-column">
-                <span>{{ session('error') }}.</span>
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column">
+                    <span>{{ session('error') }}.</span>
+                </div>
+                <!--end::Wrapper-->
             </div>
-            <!--end::Wrapper-->
-        </div>
-    @endif
+        @endif
 
 
 
@@ -55,25 +55,29 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-5">
-                <div>
-                    <!--begin::Input wrapper-->
-                    <div class="w-100">
-                        <!--begin::Title-->
-                        <h4 class="fs-5 fw-semibold text-gray-800">Filter</h4>
-                        <!--end::Title-->
 
-                        <!--begin::Title-->
-                        <div class="d-flex">
+                <!--begin::Input wrapper-->
+                <div class="w-40">
+                    <!--begin::Title-->
+                    <h4 class="fs-5 fw-semibold text-gray-800">Filter</h4>
+                    <!--end::Title-->
+                    <div class="row">
+                        <div class="col-md-9 d-flex">
+                            <!-- Input dan tombol Tampilkan -->
                             <input type="text" class="form-control form-control-solid me-3 flex-grow-1"
                                 placeholder="Nama" wire:model="searchName" />
-
                             <button class="btn btn-primary fw-bold flex-shrink-0"
                                 wire:click="applyFilter">Tampilkan</button>
                         </div>
-                        <!--end::Title-->
+                        <!-- Tombol tambahan di bawah input dan tombol Tampilkan -->
+                        <div class="col-md-3">
+                            <button class="btn btn-primary fw-bold flex-shrink-0" data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_import" >Import Data User</button>
+                        </div>
                     </div>
-                    <!--end::Input wrapper-->
                 </div>
+                <!--end::Input wrapper-->
+
 
                 <br><br>
                 <!--begin::Form-->
@@ -140,7 +144,7 @@
         <!--end::Contacts-->
     </div>
 
-    {{-- MODAL --}}
+    {{-- MODAL iji --}}
     <div class="modal fade" tabindex="-1" id="kt_modal_stacked_1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -156,7 +160,7 @@
                         </div>
                         <!--end::Close-->
                     </div>
-                    <input type="hidden" name="userId" value="{{$selectedUser->id ?? ''}}">
+                    <input type="hidden" name="userId" value="{{ $selectedUser->id ?? '' }}">
                     <div class="modal-body">
                         <div class="fv-row mb-5 fv-plugins-icon-container">
                             <label class="fs-6 fw-semibold form-label">
@@ -211,6 +215,49 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- MODAL cuti --}}
+    <div class="modal fade" tabindex="-1" id="kt_modal_import">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form action="{{ route('admin.leave') }}" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-capitalize ">Import Data User</h3>
+                        @csrf
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                        <!--end::Close-->
+                    </div>
+                    <div class="modal-body">
+                        <div class="fv-row mb-5 fv-plugins-icon-container">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Import File Exsel</label>
+                                <input class="form-control" type="file" name="file" id="formFile">
+                                <br>
+                                <a href="{{ asset('assets/tamplate.xlsx')}}" download>Tamplate Import File User</a>
+                              </div>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                           
+                            <!--end::Input-->
+                   
+                        </div>
+
                     </div>
 
                     <div class="modal-footer">
