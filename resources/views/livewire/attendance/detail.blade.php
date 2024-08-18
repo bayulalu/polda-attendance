@@ -11,7 +11,7 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <i class="ki-outline ki-badge fs-1 me-2"></i>
-                    <h2>Kehadiran Pegawai {{$attendances->first()->user->name}}</h2>
+                    <h2>Kehadiran Pegawai {{ $attendances->first()->user->name }}</h2>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -44,9 +44,10 @@
                                 <th>Tanggal</th>
                                 <th>Type</th>
                                 <th>Masuk</th>
+                                <th>Foto masuk</th>
                                 <th>Pulang</th>
+                                <th>Foto pulang</th>
                                 <th>Surat Tugas</th>
-                                <th>Foto</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -59,9 +60,31 @@
                                     <td>{{ $attendance->date }}</td>
                                     <td>{{ $attendance->type }}</td>
                                     <td>{{ $attendance->check_in ?? '-' }}</td>
+                                    <td>
+                                        @if ($attendance->foto)
+                                            <a href="{{ asset('storage/' . $attendance->foto) }}"
+                                                data-lightbox="{{ $attendance->foto }}">
+                                                <img width="70" src="{{ asset('storage/' . $attendance->foto) }}" alt="foto">
+                                            </a>
+                                        @else
+                                            -
+                                        @endif
+
+                                    </td>
+
                                     <td>{{ $attendance->check_out ?? '-' }}</td>
+                                    <td>
+                                        @if ($attendance->foto_out)
+                                            <a href="{{ asset('storage/' . $attendance->foto_out) }}"
+                                                data-lightbox="{{ $attendance->foto }}">
+                                                <img width="70" src="{{ asset('storage/' . $attendance->foto_out) }}"
+                                                    alt="foto">
+                                            </a>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td>{{ $attendance->file_assignment ?? '-' }}</td>
-                                    <td><img width="30" src="{{ asset('/assets/media/avatars/300-1.jpg') }}" alt=""></td>
                                     <td>{{ $attendance->status == 1 ? 'Diterima' : 'Ditolak' }}</td>
                                 </tr>
                             @empty
