@@ -143,7 +143,7 @@
                                         <div class="menu-item">
                                             <!--begin:Menu content-->
                                             <div class="menu-content">
-                                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
+                                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">User</span>
                                             </div>
                                             <!--end:Menu content-->
                                         </div>

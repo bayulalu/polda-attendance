@@ -1,16 +1,12 @@
 <?php
 
-// use App\Http\Controllers\AuthController;
-
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Testing;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
-// use App\Livewire\Post\Index;
 use App\Livewire\Absensi\Index as AbsenUser;
 use App\Livewire\Absensi\ListAbsen as AbsenList;
 use App\Livewire\Admin\User as DaftarUser;
@@ -25,8 +21,6 @@ use App\Livewire\Attendance\Detail as DetailAttendance;
 use App\Livewire\Post\Create;
 use App\Livewire\Post\Edit;
 use App\Livewire\Auth;
-
-
 
 Route::get('/login', Auth::class)->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -47,8 +41,6 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::post('/admin-leave', [UserController::class, 'leave'])->name('admin.leave');
         Route::post('/admin-user-import', [UserController::class, 'import'])->name('admin.import');
         Route::post('/admin-user-download', [UserController::class, 'download'])->name('admin.download');
-
-
 
         // ADMIN LIST SETTING
         Route::get('/add-setting', AddSetting::class)->name('add.setting');
