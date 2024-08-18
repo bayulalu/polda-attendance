@@ -10,7 +10,7 @@
             <div class="card-header pt-7" id="kt_chat_contacts_header">
                 <!--begin::Card title-->
                 <div class="card-title">
-                    <i class="ki-outline ki-badge fs-1 me-2"></i>
+                    <i class="fa-sharp-duotone fa-solid fa-clipboard fs-1 me-2"></i>
                     <h2>Kehadiran Pegawai {{ $attendances->first()->user->name }}</h2>
                 </div>
                 <!--end::Card title-->
