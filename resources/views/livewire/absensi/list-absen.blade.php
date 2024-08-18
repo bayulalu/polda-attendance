@@ -92,6 +92,8 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{ $attendances->links('vendor.pagination.bootstrap-5') }}
+
                 </div>
                 <!--end::Form-->
             </div>
