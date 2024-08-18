@@ -18,7 +18,14 @@ class AddSetting extends Component
             'day' => 'required|unique:settings',
             'time_arrival' => 'required',
             'time_gohome' => 'required',
-        ]);
+        ],
+        [
+            'day' => 'Hari Tidak Boleh Kosong Atau Sama',
+            'time_arrival' => 'Jam Masuk Tidak Boleh Kosong',
+            'time_gohome' => 'Jam Pulang Tidak Boleh Kosong',
+        ]
+    
+    );
 
         Setting::create([
             'day' => $this->day,

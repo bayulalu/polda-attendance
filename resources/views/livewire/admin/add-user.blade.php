@@ -76,34 +76,6 @@
                             @enderror
                         </div>
 
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7 fv-plugins-icon-container">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold form-label">
-                                <span class="required">Jenis Kelamin</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" aria-label="Enter the contact's name."
-                                    data-bs-original-title="Enter the contact's name." data-kt-initialized="1">
-                                    <i class="ki-outline ki-information fs-7"></i>
-                                </span>
-                            </label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <select class="form-select" aria-label="pria" wire:model="gender">
-                                <option value="">Pilih</option>
-                                <option value="pria">Pria</option>
-                                <option value="wanita">Wanita</option>
-                            </select>
-                            <!--end::Input-->
-                            @error('gender')
-                                <div
-                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <!--end::Input group-->
-
 
                         <div class="fv-row mb-7 fv-plugins-icon-container">
                             <!--begin::Label-->

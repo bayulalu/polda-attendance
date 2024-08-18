@@ -17,18 +17,24 @@ class AddUser extends Component
 
     public function store()
     {
-        $validate = $this->validate([
-            'nip' => 'required|unique:users',
-            'name' => 'required',
-            'gender' => 'required',
-            'position' => 'required',
-            'rank' => 'required'
-        ]);
+        $validate = $this->validate(
+            [
+                'nip' => 'required|unique:users',
+                'name' => 'required',
+                'position' => 'required',
+                'rank' => 'required'
+            ],
+            [
+                'nip' => 'Data Nip Tidak Boleh Kosong',
+                'name' => 'Data Nama Tidak Boleh Kosong',
+                'rank' => 'Data Pangkat Tidak Boleh Kosong',
+                'position' => 'Data Jabatan Tidak Boleh Kosong'
+            ]
+        );
 
         User::create([
             'nip' => $this->nip,
             'name' => $this->name,
-            'gender' => $this->gender,
             'position' => $this->position,
             'password' => $this->nip,
             'is_admin' => false,
