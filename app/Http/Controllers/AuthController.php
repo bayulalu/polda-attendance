@@ -11,13 +11,14 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-        return redirect('login');
+        Auth::logout();  
+        session()->flush(); 
+
+        return redirect()->route('login');  
     }
 
     public function layout()
     {
         return view('auth.layout');
-
     }
 }

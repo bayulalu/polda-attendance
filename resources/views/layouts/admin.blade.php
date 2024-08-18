@@ -384,7 +384,7 @@
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-5 my-1">
-                                            <a href="account/settings.html" class="menu-link px-5">Ubah Kata Sandi</a>
+                                            <a href="{{ route('password.index') }}" class="menu-link px-5">Ubah Kata Sandi</a>
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->

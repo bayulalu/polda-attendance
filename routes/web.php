@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\RedirectIfAuthenticatedWithRole;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -21,12 +22,19 @@ use App\Livewire\Attendance\Detail as DetailAttendance;
 use App\Livewire\Post\Create;
 use App\Livewire\Post\Edit;
 use App\Livewire\Auth;
+use App\Livewire\Password\Index as ChangePassword;
 
-Route::get('/login', Auth::class)->name('login');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/', Auth::class);
 
+
+Route::middleware([RedirectIfAuthenticatedWithRole::class])->group(function () {
+    Route::get('/login', Auth::class)->name('login');
+    Route::get('/', Auth::class);
+});
 Route::middleware([AuthMiddleware::class])->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/change-password', ChangePassword::class)->name('password.index');
+
+
     Route::middleware([UserMiddleware::class])->group(function () {
         Route::get('/attendance', AbsenUser::class)->name('absen.user.index');
         Route::post('/attendance', [AttendanceController::class, 'store'])->name('absen.user.post');
