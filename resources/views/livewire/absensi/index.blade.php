@@ -1,5 +1,5 @@
 @section('atten', 'active')
-
+@section('title', 'Kehadiran')
 
 <style>
     #surat-tugas {

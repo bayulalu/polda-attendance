@@ -1,4 +1,5 @@
 @section('user', 'active')
+@section('title', 'User')
 
 
 <div class=" row g-5 gx-xl-10 mb-5 mb-xl-10  justify-content-center align-items-center ">

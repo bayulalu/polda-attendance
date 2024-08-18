@@ -5,7 +5,7 @@
 
 <head>
     <base href="../../" />
-    <title>@yield('title')</title>
+    <title>@yield('title') | SIMON HADIR</title>
     <meta charset="utf-8" />
     <meta name="description" content="POLDA" />
     <meta name="keywords" content="POLDA" />
