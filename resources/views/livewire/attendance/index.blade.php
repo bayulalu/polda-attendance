@@ -3,9 +3,34 @@
 <div class=" row g-5 gx-xl-10 mb-5 mb-xl-10  justify-content-center align-items-center ">
 
     <div class="col-xl-8 col-md-10 col-sm-12">
+        @if (session('error'))
+            <!--begin::Alert-->
+            <div class="alert alert-danger  d-flex align-items-center p-5">
+                <!--begin::Icon-->
+                <i class="ki-duotone ki-double-check  fs-2hx text-danger me-4 ">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                </i>
+                <!--end::Icon-->
 
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column">
+                    <span>{{ session('error') }}.</span>
+                </div>
+                <!--end::Wrapper-->
+            </div>
+        @endif
         <!--begin::Contacts-->
         <div class="card card-flush h-lg-100" id="kt_contacts_main">
+
+            <div class="d-flex justify-content-end align-items-center" data-bs-toggle="modal"
+                data-bs-target="#kt_modal_kehadiran">
+                <button class="btn btn-primary btn-sm ms-auto mt-3 me-3">
+                    <i class="fa-solid fa-download"></i>
+                    Unduh Kehadiran
+                </button>
+            </div>
+
             <!--begin::Card header-->
             <div class="card-header pt-7" id="kt_chat_contacts_header">
                 <!--begin::Card title-->
@@ -101,9 +126,51 @@
             <!--end::Card body-->
         </div>
         <!--end::Contacts-->
-    </div>
-    <script>
 
+        <div class="modal fade" tabindex="-1" id="kt_modal_kehadiran">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form action="{{ route('admin.download') }}" method="POST">
+                        <div class="modal-header">
+                            <h3 class="modal-title text-capitalize "> Unduh Kehadiran</h3>
+                            @csrf
+                            <!--begin::Close-->
+                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                                aria-label="Close">
+                                <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                        class="path2"></span></i>
+                            </div>
+                            <!--end::Close-->
+                        </div>
+                        <div class="modal-body">
+                            <div class="fv-row mb-5 fv-plugins-icon-container">
+                                <div class="mb-0">
+                                    <label class="form-label">Pilih Bulan</label>
+                                    <input class="form-control form-control-solid" placeholder="bulan tahun"
+                                        id="kt_daterangepicker_3" name="month" />
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Unduh</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css"
+            rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+    </div>
+
+    <script>
         $('#kt_daterangepicker_1').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
@@ -114,6 +181,14 @@
             }
         }, function(start) {
             @this.set('searchTerm', start.format('YYYY-MM-DD'));
+        });
+
+        $('#kt_daterangepicker_3').datepicker({
+            format: 'yyyy-mm',
+            minViewMode: 1,
+            startView: 1,
+            maxViewMode: 2,
+            autoclose: true
         });
     </script>
 </div>

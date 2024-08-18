@@ -231,7 +231,7 @@
     <div class="modal fade" tabindex="-1" id="kt_modal_import">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form action="{{ route('admin.leave') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.import') }}" method="POST" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h3 class="modal-title text-capitalize ">Import Data User</h3>
                         @csrf

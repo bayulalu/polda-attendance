@@ -45,7 +45,8 @@ Route::middleware([AuthMiddleware::class])->group(function () {
         Route::get('/admin-create-user', AddUser::class)->name('admin.tambah.akun');
         Route::get('/admin-update-user/{id}', UpdateUser::class)->name('admin.update.akun');
         Route::post('/admin-leave', [UserController::class, 'leave'])->name('admin.leave');
-        Route::post('/admin-user-import', [UserController::class, 'import'])->name('admin.leave');
+        Route::post('/admin-user-import', [UserController::class, 'import'])->name('admin.import');
+        Route::post('/admin-user-download', [UserController::class, 'download'])->name('admin.download');
 
 
 
