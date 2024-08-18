@@ -109,6 +109,10 @@
             locale: {
                 format: 'YYYY-MM-DD'
             }
+        }, function(start, end, label) {
+            // Kirim data ke Livewire
+            @this.set('startDate', start.format('YYYY-MM-DD'));
+            @this.set('endDate', end.format('YYYY-MM-DD'));
         });
     </script>
 </div>
