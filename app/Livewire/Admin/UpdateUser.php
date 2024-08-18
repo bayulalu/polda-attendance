@@ -18,18 +18,20 @@ class UpdateUser extends Component
     public function update()
     {
         $validate = $this->validate([
-            'nip' => 'required',
             'name' => 'required',
-            'gender' => 'required',
             'position' => 'required',
             'rank' => 'required'
+        ],[
+            'name' => 'Nama Tidak Boleh Kosong',
+            'position' => 'Jabatan Tidak Boleh Kosong',
+            'rank' => 'Pangkat Tidak Boleh Kosong',
+
         ]);
 
         $user = User::find($this->id);
         $user->update([
             'nip' => $this->nip,
             'name' => $this->name,
-            'gender' => $this->gender,
             'position' => $this->position,
             'rank' => $this->rank
         ]);
@@ -41,15 +43,11 @@ class UpdateUser extends Component
     public function mount($id)
     {
         $user = User::find($this->id);
-
-
         $this->id   = $user->id;
         $this->nip    = $user->nip;
         $this->name  = $user->name;
-        $this->gender  = $user->gender;
         $this->position  = $user->position;
         $this->rank  = $user->rank;
-
     }
 
 
