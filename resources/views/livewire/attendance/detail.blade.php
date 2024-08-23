@@ -85,7 +85,16 @@
                                             -
                                         @endif
                                     </td>
-                                    <td>{{ $attendance->file_assignment ?? '-' }}</td>
+                                    <td>
+                                        @if($attendance->file_assignment)
+                                        <a href="{{ asset('storage/' .$attendance->file_assignment) }}" target="_blank">
+                                            Buka File
+                                        </a>
+                                    @else
+                                        -
+                                    @endif
+                                    
+                                    </td>
                                     <td>{{ $attendance->status == 1 ? 'Diterima' : 'Ditolak' }}</td>
                                 </tr>
                             @empty
