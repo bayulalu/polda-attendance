@@ -44,7 +44,7 @@
             <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                 <div></div>
                 <!--begin::Link-->
-                <a href="authentication/layouts/creative/reset-password.html" class="link-primary">Lupa Password ?</a>
+                {{-- <a href="authentication/layouts/creative/reset-password.html" class="link-primary">Lupa Password ?</a> --}}
                 <!--end::Link-->
             </div>
             <!--end::Wrapper-->
