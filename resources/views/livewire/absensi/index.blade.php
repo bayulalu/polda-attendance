@@ -5,6 +5,15 @@
     #surat-tugas {
         display: none;
     }
+
+    .image-input-wrapper {
+        background-position: center;
+        /* Centers the image */
+        background-size: cover;
+        /* Ensures the image covers the entire area */
+        background-repeat: no-repeat;
+        /* Prevents the image from repeating */
+    }
 </style>
 
 <div class="row g-5 gx-xl-10 mb-5 mb-xl-10  justify-content-center align-items-center ">
@@ -199,15 +208,14 @@
                 </div>
 
                 <div class="modal-body">
-
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
-                                <video id="video" width="450" height="480" autoplay></video>
+                            <div class="col-md-6 col-sm-12">
+                                <video id="video" class="img-fluid w-100" style="height: 300px;"
+                                    autoplay></video>
                             </div>
-                            <div class="col-md-6">
-                                <canvas id="canvas" width="450" height="350"
-                                    style="padding-top: 70px"></canvas>
+                            <div class="col-md-6 col-sm-12">
+                                <canvas id="canvas" class="w-100" style="height: 300px;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -278,6 +286,7 @@
         });
         //get lokasi
         getLocation()
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
