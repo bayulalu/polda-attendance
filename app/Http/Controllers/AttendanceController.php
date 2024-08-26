@@ -153,7 +153,8 @@ class AttendanceController extends Controller
     private function calculatingDistance($request)
     {
         $lat = (float) $request->lat;
-        $lng = (float) $request->lat;
+        $lng = (float) $request->lng;
+
         // $lat = -8.578888;
         // $lng = 116.086954;
 
@@ -165,8 +166,7 @@ class AttendanceController extends Controller
         $baseLng2 = 116.084458;
 
         $distance1 = GeoHelper::haversine($lat, $lng, $baseLat1, $baseLng1);
-        $distance2 = GeoHelper::haversine($lat, $lng, $baseLat1, $baseLng1);
-
+        $distance2 = GeoHelper::haversine($lat, $lng, $baseLat2, $baseLng2);
         $allowedDistance = 300; // Jarak maksimum yang diizinkan dalam meter
         if ($distance1 <= $allowedDistance || $distance2 <= $allowedDistance) {
             return true;
