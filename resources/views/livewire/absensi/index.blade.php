@@ -71,7 +71,6 @@
                         <select class="form-select" aria-label="type" name="typeAttendance" id="type">
                             <option value="Piket">Piket</option>
                             <option value="Hadir">Hadir</option>
-                            <option value="Dik">Dik</option>
                             <option value="Tugas">Tugas</option>
                         </select>
                         <!--end::Input-->

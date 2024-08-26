@@ -175,9 +175,9 @@
                             <!--begin::Input-->
                             <select class="form-select" aria-label="pria" name="status">
                                 <option selected value="">Pilih</option>
-                                <option value="ijin">Ijin</option>
-                                <option value="cuti">Cuti</option>
-                                {{-- <option value="dik">DIK</option> --}}
+                                <option value="Ijin">Ijin</option>
+                                <option value="Cuti">Cuti</option>
+                                <option value="Dik">DIK</option>
                             </select>
                             <!--end::Input-->
                             @error('day')
