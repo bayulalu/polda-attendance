@@ -21,9 +21,14 @@ class AttendanceController extends Controller
             'typeAttendance' => 'required',
             'document' => 'nullable|file|mimes:pdf,jpeg,png,jpg,gif|max:10240',
             'imageSubmit' => 'required',
-            'lat' => 'required',
-            'lng' => 'required'
+            // 'lat' => 'required',
+            // 'lng' => 'required'
         ]);
+
+        if (!isset($request->lat) || !isset($request->lng)) {
+            session()->flash('error', 'Silahkan Cek Pengaturan Ijin Lokasi Browser Anda');
+            return redirect()->back();
+        }
 
         try {
             $userId = Auth::user()->id;
@@ -69,12 +74,13 @@ class AttendanceController extends Controller
                 $setting_time_arrival = $setting->time_arrival;
                 $setting_time = Carbon::createFromFormat('H:i', $setting_time_arrival);
                 $current_time_obj = Carbon::createFromFormat('H:i', $time);
-
+                $ket = null;
                 if ($setting_time->lessThan($current_time_obj)) {
-                    session()->flash('error', 'Anda Terlambat');
-                    return redirect()->back();
+                    // session()->flash('error', 'Anda Terlambat');
+                    // return redirect()->back();
+                    $ket = ' T';
                 }
-                $this->handelCheckIn($setting, $data, $request);
+                $this->handelCheckIn($setting, $data, $request, $ket);
             }
             DB::commit();
             session()->flash('success', 'Anda Berhasil Mengisi Daftar Hadir');
@@ -91,7 +97,7 @@ class AttendanceController extends Controller
         }
     }
 
-    private function handelCheckIn($setting, $data, $request)
+    private function handelCheckIn($setting, $data, $request, $ket)
     {
         $document = '';
         $image = '';
@@ -115,7 +121,7 @@ class AttendanceController extends Controller
             'type' => $data['type'],
             'file_assignment' =>  $document ?? null,
             'foto' => $image,
-            'check_in' => $data['check_in'],
+            'check_in' => $ket ? $data['check_in'] . $ket : $data['check_in'],
             'status' => Attendance::APPROVE,
             'user_id' => $data['user_id'],
             'settings_id' => $setting->id,
