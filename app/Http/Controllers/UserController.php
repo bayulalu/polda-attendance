@@ -29,17 +29,17 @@ class UserController extends Controller
 
             $selisihHari = $startDate->diffInDays($endDate);
             $selisihHari = $selisihHari;
-
+            $type = ucwords($request->status);
             for ($i = 0; $i <= $selisihHari; $i++) {
                 Attendance::create([
-                    'type' => ucwords($request->status),
+                    'type' => $type,
                     'status' => Attendance::APPROVE,
                     'user_id' => $request->userId,
                     'settings_id' => null,
                     'date' => $startDate->copy()->addDays($i)->format('Y-m-d')
                 ]);
             }
-            session()->flash('success', "Pengajuan Cuti {$user->name} Diterima");
+            session()->flash('success', "Pengajuan {$type} {$user->name} Diterima");
             return redirect()->back();
         } catch (\Throwable $th) {
             Log::error($th);

@@ -50,7 +50,7 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
-                    <p style="color: white">SISTIM MONITORING KEHADIRAN PERSONIL BERBASIS WEB DI LINGKUNGAN DITRESKRIMSUS POLDA NTB</p>
+                    <p style="color: white">SISTEM MONITORING KEHADIRAN PERSONIL BERBASIS WEB DI LINGKUNGAN DITRESKRIMSUS POLDA NTB</p>
                     <!--end::Title-->
                 </div>
                 <!--begin::Aside-->

@@ -55,7 +55,7 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
-                    <h2 class="fw-normal m-0" style="color: white">SISTIM MONITORING KEHADIRAN PERSONIL DITRESKRIMSUS POLDA NTB</h2>
+                    <h2 class="fw-normal m-0" style="color: white">SISTEM MONITORING KEHADIRAN PERSONIL DITRESKRIMSUS POLDA NTB</h2>
                     <!--end::Title-->
                 </div>
                 <!--begin::Aside-->
