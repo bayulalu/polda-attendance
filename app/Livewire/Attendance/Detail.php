@@ -4,9 +4,12 @@ namespace App\Livewire\Attendance;
 
 use App\Models\Attendance;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Detail extends Component
 {
+    use WithPagination;
+
     public $user_id; 
 
     public function mount($user_id)

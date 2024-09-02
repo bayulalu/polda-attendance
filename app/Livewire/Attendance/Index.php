@@ -4,9 +4,11 @@ namespace App\Livewire\Attendance;
 
 use App\Models\Attendance;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
     public $searchTerm;
     
     public function mount()

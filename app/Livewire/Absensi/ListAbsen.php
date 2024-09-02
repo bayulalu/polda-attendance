@@ -6,9 +6,11 @@ use App\Models\Attendance;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListAbsen extends Component
 {
+    use WithPagination;
 
     public $startDate;
     public $endDate;
