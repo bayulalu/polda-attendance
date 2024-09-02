@@ -178,6 +178,7 @@
                                 <option value="Ijin">Ijin</option>
                                 <option value="Cuti">Cuti</option>
                                 <option value="Dik">DIK</option>
+                                <option value="Sakit">Sakit</option>
                             </select>
                             <!--end::Input-->
                             @error('day')
