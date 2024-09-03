@@ -179,6 +179,7 @@
                                 <option value="Cuti">Cuti</option>
                                 <option value="Dik">DIK</option>
                                 <option value="Sakit">Sakit</option>
+                                <option value="BKO Pres">BKO Pres</option>
                             </select>
                             <!--end::Input-->
                             @error('day')
