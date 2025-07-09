@@ -12,7 +12,6 @@ class AddUser extends Component
     public $name;
     public $gender;
     public $position;
-    public $rank;
 
 
     public function store()
@@ -22,12 +21,10 @@ class AddUser extends Component
                 'nip' => 'required|unique:users',
                 'name' => 'required',
                 'position' => 'required',
-                'rank' => 'required'
             ],
             [
                 'nip' => 'Data Nip Tidak Boleh Kosong',
                 'name' => 'Data Nama Tidak Boleh Kosong',
-                'rank' => 'Data Pangkat Tidak Boleh Kosong',
                 'position' => 'Data Jabatan Tidak Boleh Kosong'
             ]
         );
@@ -38,11 +35,10 @@ class AddUser extends Component
             'position' => $this->position,
             'password' => $this->nip,
             'is_admin' => false,
-            'status' => true,
-            'rank' => $this->rank
+            'status' => true
         ]);
 
-        $this->reset(['nip',  'name', 'gender', 'position', 'rank']);
+        $this->reset(['nip',  'name', 'gender', 'position']);
         request()->session()->flash('success', 'Data Berhasil Disimpan');
     }
 

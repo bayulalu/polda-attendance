@@ -5,12 +5,12 @@
 
 <head>
     <base href="../../" />
-    <title>@yield('title') | SIMON HADIR</title>
+    <title>@yield('title') | PNB KAMPUS LOMBOK BARAT</title>
     <meta charset="utf-8" />
-    <meta name="description" content="POLDA" />
-    <meta name="keywords" content="POLDA" />
+    <meta name="description" content="PMB" />
+    <meta name="keywords" content="PMB" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/logo-1.png" />
+    <link rel="shortcut icon" href="assets/media/logo/logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -69,7 +69,7 @@
                 <div class="aside-logo py-8" id="kt_aside_logo">
                     <!--begin::Logo-->
                     <a href="#" class="d-flex align-items-center">
-                        <img alt="Logo" src="assets/media/logos/logo-1.png" class="h-80px logo" />
+                        <img alt="Logo" src="assets/media/logo/logo.png" class="h-80px logo" />
                     </a>
                     <!--end::Logo-->
                 </div>
@@ -267,7 +267,7 @@
                         <!--begin::Mobile logo-->
                         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                             <a href="#" class="d-lg-none">
-                                <img alt="Logo" src="assets/media/logos/logo-1.png" class="h-40px" />
+                                <img alt="Logo" src="assets/media/logo/logo.png" class="h-40px" />
                             </a>
                         </div>
                         <!--end::Mobile logo-->
@@ -424,7 +424,7 @@
                         <!--begin::Copyright-->
                         <div class="text-gray-900 order-2 order-md-1">
                             <span class="text-muted fw-semibold me-1">{{ date('Y') }} &copy;</span>
-                            <a href="#" class="text-gray-800 text-hover-primary">POLDA NTB</a>
+                            <a href="#" class="text-gray-800 text-hover-primary">PNB Lombok Barat</a>
                         </div>
                         <!--end::Copyright-->
                         <!--begin::Menu-->

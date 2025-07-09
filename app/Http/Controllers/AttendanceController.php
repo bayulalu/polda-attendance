@@ -21,8 +21,8 @@ class AttendanceController extends Controller
             'typeAttendance' => 'required',
             'document' => 'nullable|file|mimes:pdf,jpeg,png,jpg,gif|max:10240',
             'imageSubmit' => 'required',
-            // 'lat' => 'required',
-            // 'lng' => 'required'
+            'lat' => 'required',
+            'lng' => 'required'
         ]);
 
         if (!isset($request->lat) || !isset($request->lng)) {
@@ -163,13 +163,12 @@ class AttendanceController extends Controller
 
         // $lat = -8.578888;
         // $lng = 116.086954;
-
         // kantor
-        $baseLat1 = -8.578888;
-        $baseLng1 = 116.086954;
+        $baseLat1 = -8.664187255937211;
+        $baseLng1 = 116.17121318524677;
         // lapangan
-        $baseLat2 = -8.579262;
-        $baseLng2 = 116.084458;
+        $baseLat2 = -8.630107;
+        $baseLng2 = 116.192260;
 
         $distance1 = GeoHelper::haversine($lat, $lng, $baseLat1, $baseLng1);
         $distance2 = GeoHelper::haversine($lat, $lng, $baseLat2, $baseLng2);

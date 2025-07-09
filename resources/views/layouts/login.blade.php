@@ -4,12 +4,12 @@
 
 <head>
     <base href="../../../" />
-    <title>Login | SIMON HADIR</title>
+    <title>Login | SISTEM ABSENSI PNB</title>
     <meta charset="utf-8" />
-    <meta name="description" content="Login | Polda NTB" />
-    <meta name="keywords" content="Login | Polda NTB" />
+    <meta name="description" content="Login | SISTEM ABSENSI PNB" />
+    <meta name="keywords" content="Login | SISTEM ABSENSI PNB" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/logo-1.png" />
+    <link rel="shortcut icon" href="assets/media/logo/logo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -51,11 +51,11 @@
                 <div class="d-flex flex-center flex-lg-start flex-column">
                     <!--begin::Logo-->
                     <a href="#" class="mb-7">
-                        <img alt="Logo" src="assets/media/logos/logo.png" />
+                        <img alt="Logo" src="assets/media/logo/logo-pmb.png" />
                     </a>
                     <!--end::Logo-->
                     <!--begin::Title-->
-                    <h2 class="fw-normal m-0" style="color: white">SISTEM MONITORING KEHADIRAN PERSONIL DITRESKRIMSUS POLDA NTB</h2>
+                    {{-- <h2 class="fw-normal m-0" style="color: white">SISTEM KEHADIRAN PNB NTB</h2> --}}
                     <!--end::Title-->
                 </div>
                 <!--begin::Aside-->

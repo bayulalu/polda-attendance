@@ -88,8 +88,7 @@
                             <tr class="fw-bold fs-6 text-gray-800">
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Pangkat</th>
-                                <th>NIP/NRP</th>
+                                <th>NIP</th>
                                 <th>Jabatan</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -100,7 +99,6 @@
                                 <tr>
                                     <td>{{ ($users->currentPage() - 1) * $users->perPage() + $index + 1 }}</td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{ $user->rank }}</td>
                                     <td>{{ $user->nip }}</td>
                                     <td>{{ $user->position }}</td>
                                     <td>{{ $user->status ? 'Aktif' : 'Tidak Aktif' }}</td>

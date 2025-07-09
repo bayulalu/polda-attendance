@@ -42,7 +42,6 @@ class User extends Component
     {
         $user = ModelsUser::find($id);
         $user->password = $user->nip;
-        // $user->password = '123';
         $user->save();
         request()->session()->flash('success', 'Reset ' . $user->name .  ' Password Berhasil');
     }

@@ -69,9 +69,9 @@
                         <!--end::Label-->
                         <!--begin::Input-->
                         <select class="form-select" aria-label="type" name="typeAttendance" id="type">
-                            <option value="Piket">Piket</option>
                             <option value="Hadir">Hadir</option>
-                            <option value="Tugas">Tugas</option>
+                            <option value="Kunjungan">Kunjungan</option>
+
                         </select>
                         <!--end::Input-->
                         <div

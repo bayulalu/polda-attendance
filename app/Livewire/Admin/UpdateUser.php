@@ -20,11 +20,9 @@ class UpdateUser extends Component
         $validate = $this->validate([
             'name' => 'required',
             'position' => 'required',
-            'rank' => 'required'
         ],[
             'name' => 'Nama Tidak Boleh Kosong',
             'position' => 'Jabatan Tidak Boleh Kosong',
-            'rank' => 'Pangkat Tidak Boleh Kosong',
 
         ]);
 
@@ -33,7 +31,6 @@ class UpdateUser extends Component
             'nip' => $this->nip,
             'name' => $this->name,
             'position' => $this->position,
-            'rank' => $this->rank
         ]);
         request()->session()->flash('success', 'Berhasil Update User ' . $user->name);
         return redirect()->route('admin.akun');
@@ -47,7 +44,6 @@ class UpdateUser extends Component
         $this->nip    = $user->nip;
         $this->name  = $user->name;
         $this->position  = $user->position;
-        $this->rank  = $user->rank;
     }
 
 
